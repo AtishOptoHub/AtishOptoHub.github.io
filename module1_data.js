@@ -288,3 +288,136 @@ const module1Data = [
     `
   }
 ];
+{
+    title: "Cornea & Sclera (Structure, Layers, Metabolism & Transparency)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Corneal Layers & Histology</h3>
+        <p>The cornea provides ~40 to 44 D (~70%) of total ocular refractive power. Average central thickness: 530–550 µm; peripheral: 650–700 µm.</p>
+        <ol>
+          <li><strong>Epithelium:</strong> Stratified, non-keratinized squamous (~50 µm). Regenerates rapidly from limbal stem cells.</li>
+          <li><strong>Bowman's Layer:</strong> Acellular, smooth collagenous layer (~8–14 µm). Does NOT regenerate; heals with scar.</li>
+          <li><strong>Stroma:</strong> ~90% of total thickness. Composed of parallel, uniform collagen fibrils (Type I, V, VI) in glycosaminoglycan matrix.</li>
+          <li><strong>Dua's Layer:</strong> Pre-Descemet's layer (~15 µm), well-defined, tough, acellular layer.</li>
+          <li><strong>Descemet's Membrane:</strong> Basement membrane of endothelium. Thickens with age.</li>
+          <li><strong>Endothelium:</strong> Monolayer of hexagonal cells (~3000 cells/mm² in young adults). Non-regenerative; pumps fluid out of stroma via Na+/K+ ATPase pumps.</li>
+        </ol>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Corneal Transparency Factors</h3>
+        <ul>
+          <li><strong>Lattice Theory (Maurice):</strong> Uniform collagen fibril diameter (30 nm) and regular inter-fibrillar spacing (< half wavelength of light) cause destructive interference of scattered light.</li>
+          <li><strong>Avascularity:</strong> Absence of blood vessels and myelin sheath on nerve fibers.</li>
+          <li><strong>Relative Dehydration (Tumescence):</strong> Endothelial Na+/K+ ATPase pump maintains 78% hydration.</li>
+        </ul>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> Adler's Physiology of the Eye; Smolin and Thoft's The Cornea.
+      </div>
+    `
+  },
+  {
+    title: "Uveal Tract (Iris, Ciliary Body & Choroid - Anatomy & Physiology)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Iris</h3>
+        <p>Anterior extension of uvea acting as an adjustable diaphragm. Contains two muscles:</p>
+        <ul>
+          <li><strong>Sphincter Pupillae:</strong> Circular smooth muscle, parasympathetic (CN III). Constricts pupil (miosis).</li>
+          <li><strong>Dilator Pupillae:</strong> Radial smooth muscle, sympathetic. Dilates pupil (mydriasis).</li>
+        </ul>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Ciliary Body</h3>
+        <p>Triangular structure divided into <strong>Pars Plicata</strong> (anterior 2 mm, ~70 ciliary processes producing aqueous humor) and <strong>Pars Plana</strong> (posterior 4 mm, smooth zone). Ciliary muscle controls accommodation via CN III.</p>
+      </div>
+
+      <div class="academic-sec">
+        <h3>3. Choroid</h3>
+        <p>Vascular middle layer providing nourishment to outer retina and RPE. Consists of 5 layers: Suprachoroid, Haller's layer (large vessels), Sattler's layer (medium vessels), Choriocapillaris, and Bruch's membrane.</p>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> Duane's Foundations of Clinical Ophthalmology; AK Khurana.
+      </div>
+    `
+  },
+  {
+    title: "Crystalline Lens & Zonules (Structure, Accommodation & Cataractogenesis)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Anatomy & Structure</h3>
+        <p>Biconvex, transparent, avascular structure suspended behind the iris by zonules of Zinn. Refractive power: ~18–20 D.</p>
+        <ul>
+          <li><strong>Capsule:</strong> Basement membrane secreted by lens epithelium. Thickest basement membrane in body.</li>
+          <li><strong>Epithelium:</strong> Single layer of cuboidal cells under anterior capsule.</li>
+          <li><strong>Cortex & Nucleus:</strong> Concentric layers of lens fibers packed with crystallin proteins (&alpha;, &beta;, &gamma;).</li>
+        </ul>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Helmholtz Theory of Accommodation</h3>
+        <p>Ciliary muscle contracts &rarr; Ciliary ring moves inward/forward &rarr; Zonular tension decreases &rarr; Lens becomes more spherical/convex &rarr; Dioptric power increases for near vision.</p>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> Adler's Physiology of the Eye; Kanski's Clinical Ophthalmology.
+      </div>
+    `
+  },
+  {
+    title: "Retina (10 Microscopic Layers, Photoreceptors & Macular Anatomy)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Ten Layers of Neurosensory Retina (Outer to Inner)</h3>
+        <ol>
+          <li>Retinal Pigment Epithelium (RPE)</li>
+          <li>Photoreceptor Layer (Rods & Cones)</li>
+          <li>External Limiting Membrane (ELM)</li>
+          <li>Outer Nuclear Layer (ONL - Photoreceptor cell bodies)</li>
+          <li>Outer Plexiform Layer (OPL - Synapses of rods/cones with bipolar/horizontal cells)</li>
+          <li>Inner Nuclear Layer (INL - Bipolar, Amacrine, Horizontal, Müller cell bodies)</li>
+          <li>Inner Plexiform Layer (IPL)</li>
+          <li>Ganglion Cell Layer (GCL)</li>
+          <li>Nerve Fiber Layer (NFL - Unmyelinated axons of ganglion cells)</li>
+          <li>Internal Limiting Membrane (ILM)</li>
+        </ol>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Fovea & Foveola Anatomy</h3>
+        <p><strong>Fovea Centralis:</strong> 1.5 mm diameter area (~1 optic disc diameter) specialized for high visual acuity and color vision. <strong>Foveola:</strong> Central 0.35 mm containing exclusively long/medium wavelength cones and NO retinal capillary plexus (Foveal Avascular Zone - FAZ).</p>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> Ryan's Retina; Stephen J. Ryan.
+      </div>
+    `
+  },
+  {
+    title: "Optic Nerve & Visual Pathway (Retina to Visual Cortex Architecture)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Optic Nerve Segments (CN II)</h3>
+        <table class="param-table">
+          <tr><th>Segment</th><th>Length</th><th>Key Features</th></tr>
+          <tr><td>Intraocular (Optic Disc)</td><td>1 mm</td><td>Unmyelinated axons pass through lamina cribrosa.</td></tr>
+          <tr><td>Intraorbital</td><td>25–30 mm</td><td>S-shaped curve to allow globe movement. Myelinated by oligodendrocytes.</td></tr>
+          <tr><td>Intracanalicular</td><td>6–10 mm</td><td>Passes through optic canal with ophthalmic artery.</td></tr>
+          <tr><td>Intracranial</td><td>10–16 mm</td><td>Joins opposite optic nerve at optic chiasm.</td></tr>
+        </table>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Visual Pathway Course</h3>
+        <p>Retinal Ganglion Cells &rarr; Optic Nerve &rarr; <strong>Optic Chiasm</strong> (Nasal fibers decussate, Temporal fibers remain ipsilateral) &rarr; Optic Tract &rarr; <strong>Lateral Geniculate Nucleus (LGN)</strong> &rarr; Optic Radiations (Meyer's loop in Temporal lobe, Baum's loop in Parietal lobe) &rarr; <strong>Primary Visual Cortex (V1 / Broadmann Area 17)</strong> in Calcarine Sulcus.</p>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> Clinical Neuro-Ophthalmology by Walsh and Hoyt; AAO BCSC Section 5.
+      </div>
+    `
+  }
