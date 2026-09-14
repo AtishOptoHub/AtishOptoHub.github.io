@@ -311,3 +311,305 @@ const module1Data = [
           <li><strong>Epithelium:</strong> 50 µm thick (~10% total thickness). Non-keratinized stratified squamous epithelium (5–6 layers: Superficial, Wing, Basal cells). High regenerative capacity via Limbal Stem Cells.</li>
           <li><strong>Bowman's Layer:</strong> 8–14 µm acellular, smooth layer of randomly arranged Type I collagen. Acquired/acellular structure; <em>cannot regenerate</em> (forms scar if damaged).</li>
           <li><strong>Stroma (Substantia Propria):</strong> ~500 µm (~90% total thickness). Composed of parallel lamellae of Type I collagen fibrils encased in glycosaminoglycans (Chondroitin sulphate, Keratan sulphate). Keratocytes reside between lamell
+          // Add Topics 11 to 20 to module1Data array
+
+module1Data.push(
+  {
+    title: "Angle of Anterior Chamber & Structures (Gonioscopic Anatomy & Drainage)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Introduction</h3>
+        <p>The angle of the anterior chamber (iridocorneal angle) is situated at the junction between the peripheral cornea and the root of the iris. It is the primary site for aqueous humor outflow, critical for regulating Intraocular Pressure (IOP).</p>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Gonioscopic Structures (Anterior to Posterior)</h3>
+        <p>When viewed clinically via gonioscopy, the following structures are identified from anterior (corneal side) to posterior (iris side):</p>
+        <ol>
+          <li><strong>Schwalbe's Line:</strong> The anatomical termination of Descemet's membrane; appears as a fine, raised white line.</li>
+          <li><strong>Trabecular Meshwork (TM):</strong> Sieve-like spongy tissue through which aqueous drains. Divided into:
+            <ul>
+              <li><em>Uveal Meshwork:</em> Innermost layer facing anterior chamber; large pore size (25–70 µm).</li>
+              <li><em>Corneoscleral Meshwork:</em> Middle layer; smaller pore size (2–15 µm).</li>
+              <li><em>Juxtacanalicular Meshwork (Cribriform):</em> Outermost layer adjacent to Schlemm's canal; offers the highest resistance to aqueous outflow.</li>
+            </ul>
+          </li>
+          <li><strong>Schlemm's Canal:</strong> Circular vascular structure situated in the scleral sulcus that collects aqueous humor from TM and drains into episcleral veins.</li>
+          <li><strong>Scleral Spur:</strong> Posterior projection of scleral tissue that provides attachment for the ciliary muscle and TM fibers.</li>
+          <li><strong>Ciliary Body Band (CBB):</strong> Grayish-brown band representing the exposed anterior portion of the ciliary body.</li>
+          <li><strong>Iris Processes:</strong> Fine extensions of iris tissue inserting onto the scleral spur or TM.</li>
+        </ol>
+      </div>
+
+      <div class="academic-sec">
+        <h3>3. Grading Systems for Angle Width</h3>
+        <table class="param-table">
+          <tr><th>Shaffer Grade</th><th>Angle Width (Degrees)</th><th>Clinical Interpretation</th></tr>
+          <tr><td>Grade 4</td><td>35° – 45°</td><td>Wide open angle; Ciliary body band clearly visible</td></tr>
+          <tr><td>Grade 3</td><td>20° – 35°</td><td>Open angle; Scleral spur visible</td></tr>
+          <tr><td>Grade 2</td><td>20°</td><td>Moderately narrow angle; Trabecular meshwork visible</td></tr>
+          <tr><td>Grade 1</td><td>10°</td><td>Extremely narrow angle; Only Schwalbe's line visible</td></tr>
+          <tr><td>Grade 0</td><td>0°</td><td>Closed angle (Iridocorneal contact present)</td></tr>
+        </table>
+      </div>
+
+      <div class="academic-sec">
+        <h3>4. Clinical Correlations</h3>
+        <ul>
+          <li><strong>Primary Open-Angle Glaucoma (POAG):</strong> Increased outflow resistance within the juxtacanalicular trabecular meshwork leading to elevated IOP and optic neuropathy.</li>
+          <li><strong>Primary Angle-Closure Glaucoma (PACG):</strong> Physical blockage of trabecular meshwork by peripheral iris tissue, causing sudden spike in IOP.</li>
+        </ul>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> Shield's Textbook of Glaucoma (7th Ed.); Gonioscopy by Alward; AK Khurana.
+      </div>
+    `
+  },
+  {
+    title: "Pupil (Anatomy, Pupillary Reflexes & Anomalies)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Introduction</h3>
+        <p>The pupil is a variable circular aperture located slightly nasal to the center of the iris. It regulates the amount of light entering the eye, minimizes spherical and chromatic aberrations, and increases depth of focus.</p>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Anatomical & Physiological Parameters</h3>
+        <table class="param-table">
+          <tr><th>Parameter</th><th>Clinical Specification</th></tr>
+          <tr><td>Normal Diameter (Photopic)</td><td>2.0 to 4.0 mm</td></tr>
+          <tr><td>Normal Diameter (Scotopic)</td><td>4.0 to 8.0 mm</td></tr>
+          <tr><td>Physiological Anisocoria</td><td>Up to 0.4 - 0.5 mm difference between eyes (normal variant)</td></tr>
+          <tr><td>Pupillary Constriction (Miosis)</td><td>Controlled by Sphincter Pupillae (Parasympathetic, CN III)</td></tr>
+          <tr><td>Pupillary Dilation (Mydriasis)</td><td>Controlled by Dilator Pupillae (Sympathetic)</td></tr>
+        </table>
+      </div>
+
+      <div class="academic-sec">
+        <h3>3. Pupillary Reflex Pathways</h3>
+        <ul>
+          <li><strong>Light Reflex Pathway (Afferent & Efferent):</strong>
+            <ul>
+              <li><em>Afferent:</em> Retinal photoreceptors &rarr; Optic nerve (CN II) &rarr; Optic chiasm (decussation) &rarr; Optic tract &rarr; Pretectal nucleus in midbrain.</li>
+              <li><em>Interneuronal Connection:</em> Fibers pass from pretectal nucleus bilaterally to both <strong>Edinger-Westphal (EW) nuclei</strong>.</li>
+              <li><em>Efferent:</em> EW nucleus &rarr; Oculomotor nerve (CN III) &rarr; Ciliary ganglion &rarr; Short ciliary nerves &rarr; Sphincter pupillae muscle (causes direct and consensual light reflex).</li>
+            </ul>
+          </li>
+          <li><strong>Near Triad Reflex:</strong> Simultaneous occurrence of <em>Accommodation</em>, <em>Convergence</em>, and <em>Miosis</em> upon viewing a near object.</li>
+        </ul>
+      </div>
+
+      <div class="academic-sec">
+        <h3>4. Clinical Correlations</h3>
+        <ul>
+          <li><strong>Relative Afferent Pupillary Defect (RAPD / Marcus Gunn Pupil):</strong> Reduced pupillary response to light in the affected eye relative to the normal eye during the swinging flashlight test; indicates optic nerve or severe retinal disease.</li>
+          <li><strong>Argyll Robertson Pupil:</strong> Small, irregular pupils that accommodate but do not respond to light (Light-Near Dissociation); classic sign of neurosyphilis.</li>
+          <li><strong>Horner’s Syndrome:</strong> Sympathetic denervation characterized by Triad: Miosis, Ptosis, and Anhidrosis.</li>
+          <li><strong>Adie's Tonic Pupil:</strong> Benign condition with a dilated pupil showing sluggish reaction to light due to ciliary ganglion parasympathetic denervation.</li>
+        </ul>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> Clinical Neuro-Ophthalmology by Miller & Newman; Adler's Physiology of the Eye.
+      </div>
+    `
+  },
+  {
+    title: "Iris (Anatomy, Layers, Musculature & Pigmentation)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Introduction</h3>
+        <p>The iris is the most anterior part of the vascular tunic (uvea), forming a thin, contractile circular diaphragm in front of the crystalline lens. It divides the space between the cornea and lens into anterior and posterior chambers.</p>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Gross Anatomical Features</h3>
+        <ul>
+          <li><strong>Collarette:</strong> A zig-zag ridge located ~1.5 mm from pupillary margin, dividing the iris into an inner <em>Pupillary Zone</em> and an outer <em>Ciliary Zone</em>.</li>
+          <li><strong>Iris Crypts (Crypts of Fuchs):</strong> Depressions in stroma that allow aqueous to pass in and out of tissue spaces during iris movement.</li>
+          <li><strong>Thickness:</strong> Thickest at collarette (~0.6 mm) and thinnest at iris root (~0.5 mm - site susceptible to iridodialysis during trauma).</li>
+        </ul>
+      </div>
+
+      <div class="academic-sec">
+        <h3>3. Histological Layers (Anterior to Posterior)</h3>
+        <ol>
+          <li><strong>Anterior Border Layer:</strong> A condensed layer of fibroblasts and pigmented melanocytes (no true epithelium). Color of iris depends on melanocyte pigment density here.</li>
+          <li><strong>Iris Stroma:</strong> Loose collagenous meshwork containing blood vessels, nerves, fibroblasts, mast cells, and <strong>Sphincter Pupillae Muscle</strong> (ring of smooth muscle near pupil margin, 0.75–1 mm wide, innervated by parasympathetic CN III).</li>
+          <li><strong>Anterior Pigment Epithelium & Dilator Muscle:</strong> Contains myoepithelial cells forming the <strong>Dilator Pupillae Muscle</strong> (radially arranged, innervated by sympathetic fibers from superior cervical ganglion).</li>
+          <li><strong>Posterior Pigment Epithelium:</strong> Heavily pigmented double-layered epithelium that prevents light transmission through iris body. Curled over pupillary margin to form the <em>Pupillary Ruff</em>.</li>
+        </ol>
+      </div>
+
+      <div class="academic-sec">
+        <h3>4. Clinical Correlations</h3>
+        <ul>
+          <li><strong>Iridocyclitis (Anterior Uveitis):</strong> Inflammation of iris and ciliary body causing aqueous flare/cells, keratic precipitates (KPs), and posterior synechiae.</li>
+          <li><strong>Iridodialysis:</strong> Traumatic detachment of the iris root from the ciliary body.</li>
+          <li><strong>Rubeosis Iridis:</strong> Neovascularization of the iris surface driven by ischemic retinal conditions (e.g., Diabetic Retinopathy, CRVO).</li>
+        </ul>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> Wolff's Anatomy of the Eye and Orbit; Kanski's Clinical Ophthalmology.
+      </div>
+    `
+  },
+  {
+    title: "Ciliary Body (Anatomy, Pars Plana, Pars Plicata & Accommodation)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Introduction</h3>
+        <p>The ciliary body is the ring-like middle portion of the uveal tract extending from the scleral spur anteriorly to the ora serrata posteriorly. It is responsible for aqueous humor production and crystalline lens accommodation.</p>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Anatomical Subdivisions</h3>
+        <ul>
+          <li><strong>Pars Plicata (Corona Ciliaris) [Anterior 2 mm]:</strong> Contains 70 to 80 prominent radial vascular folds called <em>Ciliary Processes</em>. Main site of aqueous humor secretion and origin of zonules of Zinn.</li>
+          <li><strong>Pars Plana (Orbiculus Ciliaris) [Posterior 4 mm]:</strong> Smooth, relatively avascular tissue extending from ciliary processes to ora serrata. Preferred surgical entry site for posterior segment vitrectomy (vitreoretinal surgery).</li>
+        </ul>
+      </div>
+
+      <div class="academic-sec">
+        <h3>3. Histological Structure & Ciliary Muscle</h3>
+        <ul>
+          <li><strong>Ciliary Epithelium:</strong> Bilayered epithelium lining ciliary body:
+            <ul>
+              <li><em>Outer Pigmented Epithelium:</em> Continuous posteriorly with RPE.</li>
+              <li><em>Inner Non-Pigmented Epithelium:</em> Continuous posteriorly with neurosensory retina. Active secretion of aqueous humor occurs here via Na+/K+ ATPase pumps.</li>
+            </ul>
+          </li>
+          <li><strong>Ciliary Muscle:</strong> Smooth muscle innervated by parasympathetic fibers (CN III via short ciliary nerves). Composed of 3 fiber groups:
+            <ul>
+              <li><em>Longitudinal (Brucke's) Fibers:</em> Outer fibers attaching to scleral spur.</li>
+              <li><em>Radial fibers:</em> Intermediary transition fibers.</li>
+              <li><em>Circular (Muller's) Fibers:</em> Inner ring fibers acting as a sphincter during accommodation.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="academic-sec">
+        <h3>4. Mechanism of Accommodation (Helmholtz Theory)</h3>
+        <p>Upon near focus, ciliary muscle contracts &rarr; ciliary ring diameter narrows &rarr; zonular tension relaxes &rarr; anterior/posterior surfaces of crystalline lens become more spherical (increased curvature) &rarr; lens refractive power increases.</p>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> Adler's Physiology of the Eye; Duane's Clinical Ophthalmology.
+      </div>
+    `
+  },
+  {
+    title: "Anterior & Posterior Chambers (Volumes, Boundaries & Fluid Dynamics)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Introduction</h3>
+        <p>The anterior and posterior chambers are fluid-filled spaces within the anterior segment of the eye filled with continuously circulating aqueous humor.</p>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Comparative Parameters Table</h3>
+        <table class="param-table">
+          <tr><th>Parameter</th><th>Anterior Chamber (AC)</th><th>Posterior Chamber (PC)</th></tr>
+          <tr><td>Anterior Boundary</td><td>Corneal Endothelium</td><td>Posterior surface of Iris</td></tr>
+          <tr><td>Posterior Boundary</td><td>Anterior surface of Iris & Central Lens</td><td>Anterior surface of Vitreous & Lens Capsule</td></tr>
+          <tr><td>Peripheral Boundary</td><td>Trabecular Meshwork & Ciliary Body Band</td><td>Inner surface of Ciliary Body processes</td></tr>
+          <tr><td>Fluid Volume</td><td>~0.25 mL (250 µL)</td><td>~0.06 mL (60 µL)</td></tr>
+          <tr><td>Central Depth</td><td>3.0 to 3.5 mm</td><td>Not clinically applicable (narrow space)</td></tr>
+        </table>
+      </div>
+
+      <div class="academic-sec">
+        <h3>3. Aqueous Humor Flow Dynamics</h3>
+        <p>Aqueous humor is secreted by non-pigmented ciliary epithelium into the <strong>Posterior Chamber</strong> &rarr; flows through pupillary aperture into <strong>Anterior Chamber</strong> &rarr; drains via Trabecular Meshwork (Conventional outflow ~80-90%) and Uveoscleral pathway (Unconventional outflow ~10-20%).</p>
+      </div>
+
+      <div class="academic-sec">
+        <h3>4. Clinical Correlations</h3>
+        <ul>
+          <li><strong>Shallow Anterior Chamber:</strong> Prerequisite risk factor for primary angle-closure glaucoma and traumatic lens subluxation.</li>
+          <li><strong>Hyphema:</strong> Accumulation of blood in the anterior chamber usually caused by blunt ocular trauma damaging iris or ciliary body vessels.</li>
+          <li><strong>Hypopyon:</strong> Accumulation of inflammatory pus/leukocytes in the lower part of anterior chamber accompanying severe keratitis or endophthalmitis.</li>
+        </ul>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> AK Khurana Comprehensive Ophthalmology; American Academy of Ophthalmology (BCSC Section 2).
+      </div>
+    `
+  },
+  {
+    title: "Crystalline Lens (Anatomy, Layers, Cataractogenesis & Physiology)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Introduction & Physical Parameters</h3>
+        <p>The crystalline lens is an biconvex, transparent, elastic, avascular structure suspended behind the iris by the zonules of Zinn. It provides approximately +15.00 D to +20.00 D (~25–30%) of the eye's total refractive power and is responsible for accommodation.</p>
+        <table class="param-table">
+          <tr><th>Anatomical Parameter</th><th>Exact Clinical Value</th></tr>
+          <tr><td>Refractive Index</td><td>1.386 (Cortex) to 1.406 (Equatorial Nucleus)</td></tr>
+          <tr><td>Refractive Power (Unaccommodated)</td><td>+18.00 D to +20.00 D</td></tr>
+          <tr><td>Equatorial Diameter</td><td>9.0 to 10.0 mm (Adult)</td></tr>
+          <tr><td>Anteroposterior Thickness</td><td>3.5 to 4.0 mm (Increases with age)</td></tr>
+          <tr><td>Weight</td><td>~135 mg (Infant) to ~255 mg (80-year-old)</td></tr>
+          <tr><td>Water Content</td><td>~65% (Lowest water content of any organ)</td></tr>
+          <tr><td>Protein Content</td><td>~35% (Highest protein concentration in human body - Crystallins α, β, γ)</td></tr>
+        </table>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Histological Structure & Layers</h3>
+        <ol>
+          <li><strong>Lens Capsule:</strong> A thick, transparent, elastic basement membrane synthesized by lens epithelium. Thickest at anterior pre-equatorial region; thinnest at posterior pole (~3 µm).</li>
+          <li><strong>Anterior Lens Epithelium:</strong> Single layer of cuboidal cells beneath anterior capsule. Cells migrate toward the equator, elongate, lose organelles/nuclei, and transform into secondary lens fibers. (No posterior epithelium exists in adults).</li>
+          <li><strong>Lens Fibers & Cortex:</strong> Concentric layers of hexagonal fiber cells linked by gap junctions. Newly formed outer layers constitute the <em>Cortex</em>.</li>
+          <li><strong>Nucleus:</strong> Central dense core formed continuously throughout life:
+            <ul>
+              <li><em>Embryonic Nucleus:</em> Formed before 3rd month of gestation (Primary fibers).</li>
+              <li><em>Fetal Nucleus:</em> Formed from 3rd month to birth (shows 'Y' sutures).</li>
+              <li><em>Infantile Nucleus:</em> Formed from birth to puberty.</li>
+              <li><em>Adult Nucleus:</em> Formed after puberty.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <div class="academic-sec">
+        <h3>3. Lens Physiology & Metabolism</h3>
+        <ul>
+          <li><strong>Avascular Nutrition:</strong> Receives all nutrients (glucose, amino acids) via diffusion from aqueous humor.</li>
+          <li><strong>Metabolism:</strong> 80% glucose metabolized via Anaerobic Glycolysis (Embden-Meyerhof pathway), 15% via Hexose Monophosphate (HMP) Shunt, and minimal via Sorbitol pathway under hyperglycemic conditions.</li>
+          <li><strong>Glutathione & Transparency:</strong> High glutathione concentrations maintain lens proteins (crystallins) in a reduced state to prevent oxidative stress and protein aggregation.</li>
+        </ul>
+      </div>
+
+      <div class="academic-sec">
+        <h3>4. Clinical Correlations</h3>
+        <ul>
+          <li><strong>Cataract:</strong> Opacification of the crystalline lens caused by protein denaturation, oxidative damage, or osmotic disruption (e.g., Nuclear Sclerotic, Cortical, Posterior Subcapsular).</li>
+          <li><strong>Presbyopia:</strong> Age-related loss of accommodative power due to progressive hardening of lens nucleus and loss of capsular elasticity.</li>
+          <li><strong>Ectopia Lentis:</strong> Dislocation or subluxation of lens due to zonular weakness/disruption (e.g., Marfan syndrome, Homocystinuria).</li>
+        </ul>
+      </div>
+
+      <div class="ref-box">
+        <strong>References:</strong> Adler's Physiology of the Eye (11th Ed.); Lens and Cataract (AAO BCSC Section 11); AK Khurana.
+      </div>
+    `
+  },
+  {
+    title: "Aqueous Humor (Composition, Formation, Outflow Pathways & IOP)",
+    htmlContent: `
+      <div class="academic-sec">
+        <h3>1. Introduction</h3>
+        <p>Aqueous humor is a clear, transparent intraocular fluid produced by the ciliary body that fills the anterior and posterior chambers. It maintains Intraocular Pressure (IOP), maintains ocular shape, and supplies oxygen/nutrients to avascular structures (Cornea & Lens).</p>
+      </div>
+
+      <div class="academic-sec">
+        <h3>2. Formation & Secretion Mechanisms</h3>
+        <p>Aqueous humor is produced at a rate of <strong>2.0 to 2.5 µL/min</strong> by non-pigmented ciliary epithelium via three physiological mechanisms:</p>
+        <ul>
+          <li><strong>Active Secretion (80–90%):</strong> Primary mechanism. Selective transport of Na+, Cl-, HCO3- ions across non-pigmented epithelium against concentration gradients via Na+/K+ ATPase and Carbonic Anhydrase enzymes. Water follows osmotically.</li>
+          <li><strong>Ultrafiltration:</strong> Pressure-driven movement of water and small solutes across fenestrated ciliary capillaries.</li>
+          <li><strong>Simple Diffusion:</strong> Lipid-soluble substances move alo
