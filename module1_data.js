@@ -1,4 +1,4 @@
-// Complete Module 1 Master Data File (Topics 1 to 20)
+// Module 1 Data File (Topics 1 to 10)
 
 const module1Data = [
   {
@@ -310,4 +310,4 @@ const module1Data = [
         <ol>
           <li><strong>Epithelium:</strong> 50 µm thick (~10% total thickness). Non-keratinized stratified squamous epithelium (5–6 layers: Superficial, Wing, Basal cells). High regenerative capacity via Limbal Stem Cells.</li>
           <li><strong>Bowman's Layer:</strong> 8–14 µm acellular, smooth layer of randomly arranged Type I collagen. Acquired/acellular structure; <em>cannot regenerate</em> (forms scar if damaged).</li>
-          <li><strong>Stroma (Substantia Propria):</strong> ~500 µm (~90% total thickness). Composed of parallel lamellae of Type I collagen fibrils encased in glycosaminoglycans (Chondroitin sulphate, Keratan sulphate). Keratocytes resid
+          <li><strong>Stroma (Substantia Propria):</strong> ~500 µm (~90% total thickness). Composed of parallel lamellae of Type I collagen fibrils encased in glycosaminoglycans (Chondroitin sulphate, Keratan sulphate). Keratocytes reside between lamell
