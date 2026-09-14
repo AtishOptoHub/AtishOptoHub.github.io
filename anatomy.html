@@ -1,94 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DKC37M049Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DKC37M049Y');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ocular Anatomy Notes - Atish OptoHub</title>
+    <title>Module 1: Ocular Anatomy & Physiology | Atish OptoHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f7f6; color: #333; line-height: 1.6; padding-bottom: 40px; }
-        header { background: #0056b3; color: white; padding: 20px; text-align: center; }
-        header h1 { font-size: 1.8rem; }
-        .container { max-width: 900px; margin: 20px auto; padding: 0 15px; }
-        .nav-back { display: inline-block; margin-bottom: 15px; color: #0056b3; text-decoration: none; font-weight: bold; }
-        .card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .card h2 { color: #0056b3; margin-bottom: 10px; border-bottom: 2px solid #eef2f5; padding-bottom: 5px; }
-        .card h3 { color: #222; margin-top: 15px; margin-bottom: 5px; }
-        ul, ol { padding-left: 20px; }
-        li { margin-bottom: 5px; }
-        .badge { background: #e3f2fd; color: #0d47a1; padding: 3px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Arial, sans-serif; }
+        body { background:#f5f9fc; color:#17202a; line-height:1.6; }
+        
+        header {
+            background:#ffffff; padding:18px 6%; display:flex;
+            justify-content:space-between; align-items:center;
+            box-shadow:0 2px 10px rgba(0,0,0,0.08); position:sticky; top:0; z-index:100;
+        }
+        .logo { font-size:24px; font-weight:bold; color:#0077b6; text-decoration:none; }
+        .logo span { font-weight:normal; color:#17202a; }
+        .back-btn { color:#0077b6; text-decoration:none; font-weight:bold; font-size:0.95rem; }
+        
+        .container { max-width:1000px; margin:40px auto; padding:0 20px; }
+        .module-header { text-align:center; margin-bottom:40px; }
+        .module-header h1 { color:#0d253f; font-size:32px; margin-bottom:10px; }
+        .module-header p { color:#64748b; font-size:16px; }
+
+        /* Search Bar */
+        .search-box {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 10px;
+        }
+        .search-box input {
+            width: 100%; padding: 12px 18px; border: 1px solid #cbd5e1;
+            border-radius: 8px; font-size: 1rem; outline: none;
+        }
+
+        /* Accordion Cards */
+        .topic-card {
+            background:white; border-radius:12px; border:1px solid #cbd5e1;
+            margin-bottom:18px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,0.04);
+        }
+        .topic-header {
+            padding:20px; background:#ffffff; cursor:pointer; display:flex;
+            justify-content:space-between; align-items:center; font-weight:bold;
+            font-size:1.1rem; color:#1e293b; transition:background 0.2s;
+        }
+        .topic-header:hover { background:#f8fafc; color:#0077b6; }
+        .topic-content {
+            display:none; padding:25px; border-top:1px solid #e2e8f0; background:#ffffff;
+        }
+        
+        /* Notes Academic Styling */
+        .academic-sec { margin-bottom: 22px; }
+        .academic-sec h3 { font-size:1.25rem; color:#0077b6; margin-bottom:8px; border-bottom: 2px solid #e0f2fe; padding-bottom: 4px; }
+        .academic-sec h4 { font-weight:bold; color:#334155; margin-top:12px; margin-bottom:6px; font-size: 1.05rem; }
+        
+        .diagram-container {
+            text-align:center; margin:20px 0; background:#f8fafc; padding:20px; border-radius:10px; border: 1px dashed #cbd5e1;
+        }
+        
+        ul, ol { padding-left:22px; margin-bottom:12px; }
+        li { margin-bottom:6px; color:#334155; }
+        .param-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        .param-table th, .param-table td { border: 1px solid #cbd5e1; padding: 8px 12px; font-size: 0.92rem; text-align: left; }
+        .param-table th { background: #f1f5f9; color: #0f172a; }
+
+        .ref-box { background: #f1f5f9; padding: 12px; border-radius: 6px; font-size: 0.85rem; color: #475569; margin-top: 20px; }
+
+        footer { background:#17202a; color:white; padding:25px; text-align:center; margin-top:50px; font-size:0.85rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Ocular Anatomy Notes 👁️</h1>
-    <p>Atish OptoHub - Comprehensive Study Guide</p>
+    <a href="index.html" class="logo">Atish <span>OptoHub</span></a>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Modules</a>
 </header>
 
 <div class="container">
-    <a href="index.html" class="nav-back">← Back to Home</a>
-
-    <!-- Cornea Section -->
-    <div class="card">
-        <h2>1. Cornea</h2>
-        <p>The cornea is the transparent, anterior one-sixth of the outer fibrous coat of the eyeball.</p>
-        
-        <h3>Layers of Cornea (Anterior to Posterior)</h3>
-        <ol>
-            <li><strong>Epithelium:</strong> Stratified squamous non-keratinized epithelium. High regenerative capacity.</li>
-            <li><strong>Bowman's Layer:</strong> Acellular layer. Does NOT regenerate if damaged (leads to scar).</li>
-            <li><strong>Stroma:</strong> Makes up ~90% of corneal thickness. Composed of collagen fibrils.</li>
-            <li><strong>Dua's Layer:</strong> Pre-Descemet's layer (~15 microns thick, highly resistant).</li>
-            <li><strong>Descemet's Membrane:</strong> Basement membrane of endothelium. Can regenerate.</li>
-            <li><strong>Endothelium:</strong> Single layer of hexagonal cells. Pumps fluid out to maintain dehydration (deturgescence). Does NOT regenerate.</li>
-        </ol>
-
-        <h3 style="margin-top:15px;">Clinical Points</h3>
-        <ul>
-            <li><strong>Refractive Power:</strong> ~+43.00 D to +44.00 D (Major refractive surface of eye).</li>
-            <li><strong>Average Thickness:</strong> ~540 µm central, ~700 µm peripheral.</li>
-        </ul>
+    <div class="module-header">
+        <h1>👁️ Module 1: Ocular Anatomy & Physiology</h1>
+        <p>Textbook-grade clinical notes & physiological mechanisms master list.</p>
     </div>
 
-    <!-- Retina Section -->
-    <div class="card">
-        <h2>2. Retina</h2>
-        <p>The light-sensitive inner neural coat of the eye responsible for converting light into electrical signals.</p>
-        
-        <h3>10 Layers of Retina (Outer to Inner)</h3>
-        <ol>
-            <li>Retinal Pigment Epithelium (RPE)</li>
-            <li>Photoreceptor Layer (Rods & Cones)</li>
-            <li>External Limiting Membrane (ELM)</li>
-            <li>Outer Nuclear Layer (ONL)</li>
-            <li>Outer Plexiform Layer (OPL)</li>
-            <li>Inner Nuclear Layer (INL)</li>
-            <li>Inner Plexiform Layer (IPL)</li>
-            <li>Ganglion Cell Layer (GCL)</li>
-            <li>Nerve Fiber Layer (NFL)</li>
-            <li>Internal Limiting Membrane (ILM)</li>
-        </ol>
+    <div class="search-box">
+        <input type="text" id="searchInput" onkeyup="filterTopics()" placeholder="Search any topic (e.g., Cornea, Tear Film, Retina)...">
     </div>
 
-    <!-- Extraocular Muscles Section -->
-    <div class="card">
-        <h2>3. Extraocular Muscles (EOM)</h2>
-        <p>Six muscles control the movement of each eye (4 Recti, 2 Obliques).</p>
-        
-        <h3>Actions & Innervation</h3>
-        <ul>
-            <li><strong>Superior Rectus (CN III):</strong> Elevation (Primary), Intorsion, Adduction.</li>
-            <li><strong>Inferior Rectus (CN III):</strong> Depression (Primary), Extorsion, Adduction.</li>
-            <li><strong>Medial Rectus (CN III):</strong> Adduction (Primary).</li>
-            <li><strong>Lateral Rectus (CN VI):</strong> Abduction (Primary).</li>
-            <li><strong>Superior Oblique (CN IV):</strong> Intorsion (Primary), Depression, Abduction.</li>
-            <li><strong>Inferior Oblique (CN III):</strong> Extorsion (Primary), Elevation, Abduction.</li>
-        </ul>
-        <p><span class="badge">Mnemonic:</span> <strong>LR6 (SO4) 3</strong> — LR is supplied by 6th nerve, SO by 4th nerve, all others by 3rd nerve.</p>
-    </div>
-
+    <!-- Topics Container Generated Dynamically -->
+    <div id="topicsList"></div>
 </div>
+
+<footer>
+    © 2026 Atish OptoHub. Master Notes & Clinical Learning Resources.
+</footer>
+
+<!-- External Topics Master Data Script -->
+<script src="module1_data.js"></script>
+
+<script>
+    // Render All Topics Dynamically
+    window.onload = function() {
+        const listDiv = document.getElementById('topicsList');
+        if (typeof module1Data !== 'undefined') {
+            module1Data.forEach((topic, index) => {
+                const card = document.createElement('div');
+                card.className = 'topic-card';
+                card.innerHTML = `
+                    <div class="topic-header" onclick="toggleTopic('topic-${index}')">
+                        <span>${index + 1}. ${topic.title}</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="topic-content" id="topic-${index}">
+                        ${topic.htmlContent}
+                    </div>
+                `;
+                listDiv.appendChild(card);
+            });
+        }
+    };
+
+    function toggleTopic(id) {
+        var content = document.getElementById(id);
+        var isVisible = content.style.display === "block";
+        var allContents = document.querySelectorAll('.topic-content');
+        allContents.forEach(c => c.style.display = 'none');
+        content.style.display = isVisible ? "none" : "block";
+    }
+
+    function filterTopics() {
+        var input = document.getElementById('searchInput').value.toLowerCase();
+        var cards = document.querySelectorAll('.topic-card');
+        cards.forEach(card => {
+            var text = card.textContent.toLowerCase();
+            card.style.display = text.includes(input) ? "block" : "none";
+        });
+    }
+</script>
 
 </body>
 </html>
