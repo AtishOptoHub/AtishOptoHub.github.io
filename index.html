@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DKC37M049Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DKC37M049Y');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atish OptoHub | Optometry Learning Platform</title>
@@ -203,6 +213,78 @@ section{
     color:#0077b6;
 }
 
+/* Reviews Section CSS */
+.review-section {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 35px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border: 1px solid #e2e8f0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-form input, .review-form select, .review-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.review-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.review-form button {
+    background: #0077b6;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.review-form button:hover {
+    background: #0056b3;
+}
+
+.review-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-item {
+    background: #f8fafc;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #0077b6;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.stars {
+    color: #ffc107;
+}
+
 /* Floating Widgets CSS */
 .floating-container {
     position: fixed; bottom: 25px; right: 25px;
@@ -280,7 +362,7 @@ footer{
         <a href="#notes">11 Modules</a>
         <a href="#mcq">MCQs</a>
         <a href="#clinical">Clinical</a>
-        <a href="#research">Research</a>
+        <a href="#reviews">Reviews</a>
     </nav>
 </header>
 
@@ -456,22 +538,42 @@ footer{
     </div>
 </section>
 
-
-<section id="research">
-    <div class="highlight">
-        <h2>📊 Research & Academic Hub</h2>
-        <p>Research methodology, literature search, paper publishing guidance, and statistical analysis for optometry researchers.</p>
-        <a href="#" class="btn">Explore Research Resources →</a>
+<!-- Visitor Review & Feedback Section -->
+<section id="reviews">
+    <div class="section-title">
+        <h2>⭐ Visitor Feedback & Reviews</h2>
+        <p>Share your learning experience and feedback for Atish OptoHub.</p>
     </div>
-</section>
 
-<!-- Visitor Counter & Analytics Section -->
-<section style="background: #ffffff; text-align: center; border-radius: 12px; margin: 20px 7%; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-    <h3 style="color: #0d253f; font-size: 1.1rem; margin-bottom: 8px;">📈 Live Visitor Tracker</h3>
-    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">Tracking total visits to Atish OptoHub</p>
-    <a href="https://www.hitwebcounter.com" target="_blank">
-        <img src="https://hitwebcounter.com/counter/counter.php?page=19054321&style=0006&nbdigits=5&type=page&initCount=0" title="Counter Widget" Alt="Visit Counter"   border="0" />
-    </a>
+    <div class="review-section">
+        <form class="review-form" id="reviewForm" onsubmit="submitReview(event)">
+            <input type="text" id="reviewerName" placeholder="Your Name (e.g. Rahul Sharma, Optometry Student)" required>
+            
+            <select id="reviewerRating" required>
+                <option value="" disabled selected>Select Rating</option>
+                <option value="5">⭐⭐⭐⭐⭐ (5/5) - Excellent</option>
+                <option value="4">⭐⭐⭐⭐ (4/5) - Very Good</option>
+                <option value="3">⭐⭐⭐ (3/5) - Good</option>
+                <option value="2">⭐⭐ (2/5) - Average</option>
+                <option value="1">⭐ (1/5) - Needs Improvement</option>
+            </select>
+            
+            <textarea id="reviewerComment" placeholder="Write your review or suggestion here..." required></textarea>
+            
+            <button type="submit">Submit Review</button>
+        </form>
+
+        <div class="review-list" id="reviewList">
+            <!-- Sample Initial Reviews -->
+            <div class="review-item">
+                <div class="review-header">
+                    <span>Atish Kumar Singh</span>
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p style="font-size:0.9rem; color:#475569;">"Welcome to Atish OptoHub! Feel free to leave your valuable feedback and suggestions here."</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- Floating Widgets (WhatsApp & AI Assistant) -->
@@ -540,15 +642,54 @@ footer{
   </div>
 </footer>
 
-<!-- Interactive AI Chat Script -->
+<!-- Interactive Scripts -->
 <script>
+    // Review Submission Functionality
+    function submitReview(event) {
+        event.preventDefault();
+        var name = document.getElementById("reviewerName").value.trim();
+        var ratingVal = document.getElementById("reviewerRating").value;
+        var comment = document.getElementById("reviewerComment").value.trim();
+
+        if (!name || !ratingVal || !comment) return;
+
+        var starsText = "⭐".repeat(parseInt(ratingVal));
+
+        var reviewList = document.getElementById("reviewList");
+        var reviewItem = document.createElement("div");
+        reviewItem.className = "review-item";
+        
+        reviewItem.innerHTML = `
+            <div class="review-header">
+                <span>${escapeHTML(name)}</span>
+                <span class="stars">${starsText}</span>
+            </div>
+            <p style="font-size:0.9rem; color:#475569;">"${escapeHTML(comment)}"</p>
+        `;
+
+        reviewList.prepend(reviewItem);
+
+        // Reset form
+        document.getElementById("reviewForm").reset();
+        alert("Thank you for your review!");
+    }
+
+    function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g, 
+            tag => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag] || tag)
+        );
+    }
+
+    // AI Chatbot Functionality
     function toggleAIChat() {
         var box = document.getElementById("aiChatPopup");
-        if (box.style.display === "flex") {
-            box.style.display = "none";
-        } else {
-            box.style.display = "flex";
-        }
+        box.style.display = (box.style.display === "flex") ? "none" : "flex";
     }
 
     function handleKeyPress(e) {
