@@ -1,167 +1,19 @@
-<!-- Floating Widgets (WhatsApp & AI Assistant) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-    /* Floating Buttons Container */
-    .floating-container {
-        position: fixed; bottom: 25px; right: 25px;
-        display: flex; flex-direction: column; gap: 12px; z-index: 9999;
-    }
-    .float-btn {
-        width: 52px; height: 52px; border-radius: 50%;
-        display: flex; justify-content: center; align-items: center;
-        color: white; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        cursor: pointer; text-decoration: none; transition: transform 0.2s;
-    }
-    .float-btn:hover { transform: scale(1.1); }
-    .btn-whatsapp { background-color: #25D366; }
-    .btn-ai { background-color: #6366f1; }
-
-    /* AI Chat Popup Window */
-    .ai-chat-box {
-        display: none; position: fixed; bottom: 90px; right: 25px; width: 320px;
-        height: 420px; background: #ffffff; border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.25); border: 1px solid #cbd5e1;
-        z-index: 10000; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif;
-        flex-direction: column;
-    }
-    .ai-chat-header {
-        background: #6366f1; color: white; padding: 12px 15px; font-weight: bold;
-        display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem;
-    }
-    .ai-chat-messages {
-        flex: 1; padding: 12px; overflow-y: auto; background: #f8fafc;
-        display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;
-    }
-    .message { max-width: 85%; padding: 8px 12px; border-radius: 10px; line-height: 1.4; }
-    .bot-msg { background: #e0e7ff; color: #3730a3; align-self: flex-start; border-bottom-left-radius: 2px; }
-    .user-msg { background: #6366f1; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
-
-    /* Input Area */
-    .ai-chat-input-area {
-        display: flex; padding: 8px; background: white; border-top: 1px solid #e2e8f0; gap: 6px;
-    }
-    .ai-chat-input-area input {
-        flex: 1; border: 1px solid #cbd5e1; padding: 8px 12px; border-radius: 20px;
-        outline: none; font-size: 0.85rem;
-    }
-    .ai-chat-input-area button {
-        background: #6366f1; color: white; border: none; width: 36px; height: 36px;
-        border-radius: 50%; cursor: pointer; display: flex;
-        justify-content: center; align-items: center;
-    }
-</style>
-
-<!-- Floating Buttons -->
-<div class="floating-container">
-    <a href="https://wa.me/918405850810?text=Hello%20Atish%20OptoHub!" target="_blank" class="float-btn btn-whatsapp" title="WhatsApp Chat">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    <div class="float-btn btn-ai" onclick="toggleAIChat()" title="AI Assistant">
-        <i class="fa-solid fa-robot"></i>
-    </div>
-</div>
-
-<!-- AI Chat Box UI -->
-<div class="ai-chat-box" id="aiChatPopup">
-    <div class="ai-chat-header">
-        <span>🤖 OptoHub AI Assistant</span>
-        <span style="cursor:pointer;" onclick="toggleAIChat()">✕</span>
-    </div>
-    <div class="ai-chat-messages" id="chatMessages">
-        <div class="message bot-msg">
-            Hello! 👋 I am <strong>Atish OptoHub AI</strong>. Ask me anything about Optometry notes, Cornea, Retina, or Clinical topics!
-        </div>
-    </div>
-    <div class="ai-chat-input-area">
-        <input type="text" id="userInput" placeholder="Ask a question..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-</div>
-
-<!-- Working Chatbot Script -->
-<script>
-    function toggleAIChat() {
-        var box = document.getElementById("aiChatPopup");
-        if (box.style.display === "flex") {
-            box.style.display = "none";
-        } else {
-            box.style.display = "flex";
-        }
-    }
-
-    function handleKeyPress(e) {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    }
-
-    function sendMessage() {
-        var inputField = document.getElementById("userInput");
-        var text = inputField.value.trim();
-        if (text === "") return;
-
-        var messagesContainer = document.getElementById("chatMessages");
-
-        // Show User Message
-        var userDiv = document.createElement("div");
-        userDiv.className = "message user-msg";
-        userDiv.textContent = text;
-        messagesContainer.appendChild(userDiv);
-
-        inputField.value = "";
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-        // Auto Bot Reply
-        setTimeout(function() {
-            var botReply = generateOptoReply(text.toLowerCase());
-            var botDiv = document.createElement("div");
-            botDiv.className = "message bot-msg";
-            botDiv.innerHTML = botReply;
-            messagesContainer.appendChild(botDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }, 500);
-    }
-
-    function generateOptoReply(query) {
-        if (query.includes("cornea") || query.includes("corneal")) {
-            return "<strong>Cornea:</strong> Primary refractive power (~+43D). Contains 6 layers: Epithelium, Bowman's, Stroma, Dua's, Descemet's, Endothelium.";
-        } else if (query.includes("retina")) {
-            return "<strong>Retina:</strong> Has 10 layers. Essential for visual phototransduction and processing.";
-        } else if (query.includes("notes") || query.includes("anatomy")) {
-            return "Check out our notes in the <a href='anatomy.html' style='color:#3730a3;font-weight:bold;'>Ocular Anatomy Page</a>!";
-        } else if (query.includes("hello") || query.includes("hi") || query.includes("hey")) {
-            return "Hello Optometrist! How can I assist you with Optometry studies today?";
-        } else if (query.includes("contact") || query.includes("atish") || query.includes("author")) {
-            return "You can contact <strong>Atish Kumar Singh</strong> directly via WhatsApp!";
-        } else {
-            return "Thank you! I am trained on Optometry topics like Cornea, Retina, and Clinical Notes. Try asking about <strong>Cornea</strong> or <strong>Anatomy notes</strong>!";
-        }
-    }
-</script>
-        Welcome to <strong>Atish OptoHub</strong>! How can I assist you with Optometry notes or clinical guidance today?
-    </div>
-</div>
-
-<script>
-    function toggleAIChat() {
-        var box = document.getElementById("aiChatPopup");
-        box.style.display = (box.style.display === "block") ? "none" : "block";
-    }
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Atish OptoHub | Optometry Learning Platform</title>
+
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:'Segoe UI', Arial, sans-serif;
 }
 
 body{
@@ -185,10 +37,12 @@ header{
 .logo{
     font-size:24px;
     font-weight:bold;
+    color:#0077b6;
 }
 
 .logo span{
     font-weight:normal;
+    color:#17202a;
 }
 
 nav a{
@@ -196,17 +50,28 @@ nav a{
     color:#17202a;
     margin-left:18px;
     font-size:14px;
+    font-weight:600;
+    transition: color 0.2s;
 }
 
+nav a:hover{
+    color:#0077b6;
+}
+
+/* Hero Section with Professional Background */
 .hero{
-    padding:80px 7%;
+    padding:90px 7%;
     text-align:center;
-    background:linear-gradient(135deg,#e9f7ff,#ffffff);
+    background: linear-gradient(rgba(233, 247, 255, 0.92), rgba(255, 255, 255, 0.95)), 
+                url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
 }
 
 .hero h1{
     font-size:44px;
     margin-bottom:15px;
+    color:#0d253f;
 }
 
 .hero h1 span{
@@ -215,24 +80,31 @@ nav a{
 
 .hero p{
     font-size:18px;
-    max-width:700px;
+    max-width:720px;
     margin:0 auto 30px;
-    color:#52616b;
+    color:#4a5568;
+    font-weight: 500;
 }
 
 .buttons{
     display:flex;
     justify-content:center;
-    gap:12px;
+    gap:14px;
     flex-wrap:wrap;
 }
 
 .btn{
     display:inline-block;
-    padding:13px 22px;
+    padding:13px 24px;
     border-radius:8px;
     text-decoration:none;
     font-weight:bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .primary{
@@ -243,7 +115,7 @@ nav a{
 .secondary{
     background:white;
     color:#0077b6;
-    border:1px solid #0077b6;
+    border:2px solid #0077b6;
 }
 
 section{
@@ -258,6 +130,7 @@ section{
 .section-title h2{
     font-size:30px;
     margin-bottom:8px;
+    color:#0d253f;
 }
 
 .section-title p{
@@ -266,20 +139,25 @@ section{
 
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:22px;
 }
 
 .card{
     background:white;
     padding:25px;
     border-radius:14px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.07);
-    transition:0.2s;
+    box-shadow:0 4px 15px rgba(0,0,0,0.06);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
 }
 
 .icon{
@@ -289,16 +167,18 @@ section{
 
 .card h3{
     margin-bottom:8px;
+    color:#1e293b;
+    font-size: 1.15rem;
 }
 
 .card p{
-    color:#68757d;
+    color:#64748b;
     font-size:14px;
+    margin-bottom: 15px;
 }
 
 .card a{
     display:inline-block;
-    margin-top:15px;
     color:#0077b6;
     text-decoration:none;
     font-weight:bold;
@@ -315,6 +195,7 @@ section{
 .highlight p{
     margin:10px auto 20px;
     max-width:650px;
+    color:#e0f2fe;
 }
 
 .highlight .btn{
@@ -322,51 +203,67 @@ section{
     color:#0077b6;
 }
 
+/* Floating Widgets CSS */
+.floating-container {
+    position: fixed; bottom: 25px; right: 25px;
+    display: flex; flex-direction: column; gap: 12px; z-index: 9999;
+}
+.float-btn {
+    width: 52px; height: 52px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    color: white; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    cursor: pointer; text-decoration: none; transition: transform 0.2s;
+}
+.float-btn:hover { transform: scale(1.1); }
+.btn-whatsapp { background-color: #25D366; }
+.btn-ai { background-color: #6366f1; }
+
+.ai-chat-box {
+    display: none; position: fixed; bottom: 90px; right: 25px; width: 330px;
+    height: 440px; background: #ffffff; border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25); border: 1px solid #cbd5e1;
+    z-index: 10000; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif;
+    flex-direction: column;
+}
+.ai-chat-header {
+    background: #6366f1; color: white; padding: 12px 15px; font-weight: bold;
+    display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem;
+}
+.ai-chat-messages {
+    flex: 1; padding: 12px; overflow-y: auto; background: #f8fafc;
+    display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;
+}
+.message { max-width: 85%; padding: 8px 12px; border-radius: 10px; line-height: 1.4; }
+.bot-msg { background: #e0e7ff; color: #3730a3; align-self: flex-start; border-bottom-left-radius: 2px; }
+.user-msg { background: #6366f1; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+
+.ai-chat-input-area {
+    display: flex; padding: 8px; background: white; border-top: 1px solid #e2e8f0; gap: 6px;
+}
+.ai-chat-input-area input {
+    flex: 1; border: 1px solid #cbd5e1; padding: 8px 12px; border-radius: 20px;
+    outline: none; font-size: 0.85rem;
+}
+.ai-chat-input-area button {
+    background: #6366f1; color: white; border: none; width: 36px; height: 36px;
+    border-radius: 50%; cursor: pointer; display: flex;
+    justify-content: center; align-items: center;
+}
+
 footer{
     background:#17202a;
     color:white;
-    text-align:center;
-    padding:35px 20px;
-}
-
-footer p{
-    color:#c7d0d6;
-    font-size:14px;
-    margin-top:8px;
+    padding:40px 20px 20px 20px;
 }
 
 @media(max-width:700px){
-
-    header{
-        padding:15px;
-        flex-direction:column;
-        gap:12px;
-    }
-
-    nav a{
-        margin:0 6px;
-        font-size:12px;
-    }
-
-    .hero{
-        padding:55px 20px;
-    }
-
-    .hero h1{
-        font-size:34px;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    section{
-        padding:40px 20px;
-    }
-
-    .section-title h2{
-        font-size:26px;
-    }
+    header{ padding:15px; flex-direction:column; gap:12px; }
+    nav a{ margin:0 6px; font-size:12px; }
+    .hero{ padding:55px 20px; }
+    .hero h1{ font-size:32px; }
+    .hero p{ font-size:15px; }
+    section{ padding:40px 20px; }
+    .section-title h2{ font-size:26px; }
 }
 </style>
 </head>
@@ -374,292 +271,240 @@ footer p{
 <body>
 
 <header>
+    <div class="logo">
+        Atish <span>OptoHub</span>
+    </div>
 
-<div class="logo">
-Atish <span>OptoHub</span>
-</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#notes">Notes</a>
-<a href="#mcq">MCQs</a>
-<a href="#clinical">Clinical</a>
-<a href="#research">Research</a>
-</nav>
-
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#notes">11 Modules</a>
+        <a href="#mcq">MCQs</a>
+        <a href="#clinical">Clinical</a>
+        <a href="#research">Research</a>
+    </nav>
 </header>
 
 
 <section class="hero" id="home">
-
-<h1>Welcome to <span>Atish OptoHub</span></h1>
-
-<p>
-Your learning and clinical resource hub for Optometry students,
-interns and eye-care professionals.
-</p>
-
-<div class="buttons">
-
-<a href="#notes" class="btn primary">
-Explore Notes
-</a>
-
-<a href="#mcq" class="btn secondary">
-Practice MCQs
-</a>
-
-</div>
-
+    <h1>Welcome to <span>Atish OptoHub</span></h1>
+    <p>
+        Your comprehensive clinical learning and academic resource platform for Optometry students, interns, and eye-care professionals.
+    </p>
+    <div class="buttons">
+        <a href="#notes" class="btn primary">Explore 11 Modules</a>
+        <a href="#mcq" class="btn secondary">Practice MCQs</a>
+    </div>
 </section>
 
 
 <section id="notes">
+    <div class="section-title">
+        <h2>📚 Optometry Learning (11 Core Modules)</h2>
+        <p>Master core clinical and academic optometry concepts step-by-step.</p>
+    </div>
 
-<div class="section-title">
+    <div class="cards">
+        <!-- Module 1 -->
+        <div class="card">
+            <div class="icon">👁️</div>
+            <h3>Ocular Anatomy & Physiology</h3>
+            <p>Structure, layers, cornea, retina, ocular physiology, and visual pathways.</p>
+            <a href="anatomy.html">Explore Module →</a>
+        </div>
 
-<h2>📚 Optometry Learning</h2>
+        <!-- Module 2 -->
+        <div class="card">
+            <div class="icon">🔍</div>
+            <h3>Optometric Optics & Refraction</h3>
+            <p>Geometrical optics, retinoscopy, subjective/objective refraction methods.</p>
+            <a href="#">Explore Module →</a>
+        </div>
 
-<p>
-Learn important concepts in a simple and practical way.
-</p>
+        <!-- Module 3 -->
+        <div class="card">
+            <div class="icon">🩺</div>
+            <h3>Clinical Optometry & Procedures</h3>
+            <p>History taking, slit-lamp examination, tonometry, and routine protocols.</p>
+            <a href="#">Explore Module →</a>
+        </div>
 
-</div>
+        <!-- Module 4 -->
+        <div class="card">
+            <div class="icon">🔬</div>
+            <h3>Ocular Pathology & Diseases</h3>
+            <p>Cataract, Glaucoma, Diabetic Retinopathy, Corneal disorders, and management.</p>
+            <a href="#">Explore Module →</a>
+        </div>
 
+        <!-- Module 5 -->
+        <div class="card">
+            <div class="icon">👓</div>
+            <h3>Contact Lens Science</h3>
+            <p>Fitting techniques, RGP, Soft lenses, Specialty lenses, and complications.</p>
+            <a href="#">Explore Module →</a>
+        </div>
 
-<div class="cards">
+        <!-- Module 6 -->
+        <div class="card">
+            <div class="icon">🧠</div>
+            <h3>Binocular Vision & Orthoptics</h3>
+            <p>Squint assessment, cover tests, vergence, amblyopia management, and prisms.</p>
+            <a href="#">Explore Module →</a>
+        </div>
 
-<div class="card">
+        <!-- Module 7 -->
+        <div class="card">
+            <div class="icon">📊</div>
+            <h3>Diagnostic & Ocular Investigation</h3>
+            <p>OCT analysis, Corneal Topography, Visual Fields/Perimetry, FFA, Pachymetry.</p>
+            <a href="#">Explore Module →</a>
+        </div>
 
-<div class="icon">👁️</div>
+        <!-- Module 8 -->
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Vision Therapy & Neuro-Optometry</h3>
+            <p>VT protocols, accommodation/convergence exercises, Brock string, TBI rehab.</p>
+            <a href="#">Explore Module →</a>
+        </div>
 
-<h3>Ocular Anatomy</h3>
+        <!-- Module 9 -->
+        <div class="card">
+            <div class="icon">🔎</div>
+            <h3>Low Vision & Rehabilitation</h3>
+            <p>Low vision devices, magnifiers, telescopes, non-optical aids, and rehab.</p>
+            <a href="#">Explore Module →</a>
+        </div>
 
-<p>
-Learn anatomy and physiology of the eye with easy explanations.
-</p>
+        <!-- Module 10 -->
+        <div class="card">
+            <div class="icon">👶</div>
+            <h3>Pediatric & Geriatric Optometry</h3>
+            <p>Child eye examination, vision development, and aging eye clinical care.</p>
+            <a href="#">Explore Module →</a>
+        </div>
 
-<a href="anatomy.html" style="color: #0056b3; font-weight: bold; text-decoration: none;">Explore →</a>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🔍</div>
-
-<h3>Refraction</h3>
-
-<p>
-Understand subjective and objective refraction techniques.
-</p>
-
-<a href="#">Explore →</a>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">👓</div>
-
-<h3>Contact Lens</h3>
-
-<p>
-Study contact lens concepts, fitting and clinical applications.
-</p>
-
-<a href="#">Explore →</a>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🧠</div>
-
-<h3>Binocular Vision</h3>
-
-<p>
-Learn binocular vision concepts, tests and clinical applications.
-</p>
-
-<a href="#">Explore →</a>
-
-</div>
-
-</div>
-
+        <!-- Module 11 -->
+        <div class="card">
+            <div class="icon">🏬</div>
+            <h3>Dispensing Optics & Practice Mgmt</h3>
+            <p>Frame selection, lens materials, coatings, lab optics, and clinic management.</p>
+            <a href="#">Explore Module →</a>
+        </div>
+    </div>
 </section>
 
 
 <section id="mcq">
+    <div class="section-title">
+        <h2>📝 MCQs & Viva Prep</h2>
+        <p>Test your clinical knowledge and prepare for board & academic examinations.</p>
+    </div>
 
-<div class="section-title">
+    <div class="cards">
+        <div class="card">
+            <div class="icon">📖</div>
+            <h3>Topic-wise MCQs</h3>
+            <p>Practice optometry MCQs organized by subject and specialty topics.</p>
+            <a href="#">Start Practice →</a>
+        </div>
 
-<h2>📝 MCQs & Viva</h2>
+        <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Mock Examinations</h3>
+            <p>Timed mock tests modeled for competitive and semester exams.</p>
+            <a href="#">Coming Soon →</a>
+        </div>
 
-<p>
-Test your knowledge and prepare for examinations.
-</p>
-
-</div>
-
-
-<div class="cards">
-
-<div class="card">
-
-<div class="icon">📖</div>
-
-<h3>Topic-wise MCQs</h3>
-
-<p>
-Practice optometry MCQs organized by subject and topic.
-</p>
-
-<a href="#">Start Practice →</a>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🎯</div>
-
-<h3>Mock Tests</h3>
-
-<p>
-Practice exam-style questions and improve your preparation.
-</p>
-
-<a href="#">Coming Soon →</a>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">💬</div>
-
-<h3>Viva Questions</h3>
-
-<p>
-Important viva questions for students and interns.
-</p>
-
-<a href="#">Coming Soon →</a>
-
-</div>
-
-</div>
-
+        <div class="card">
+            <div class="icon">💬</div>
+            <h3>Viva & Clinical Cases</h3>
+            <p>High-yield viva questions and case study discussions for interns.</p>
+            <a href="#">Coming Soon →</a>
+        </div>
+    </div>
 </section>
 
 
 <section id="clinical">
+    <div class="section-title">
+        <h2>🔬 Special Clinical Tools</h2>
+        <p>Practical clinical calculators and specialized hubs.</p>
+    </div>
 
-<div class="section-title">
+    <div class="cards">
+        <div class="card">
+            <div class="icon">🩺</div>
+            <h3>Clinical Procedures Guide</h3>
+            <p>Step-by-step clinical protocols for primary and advanced procedures.</p>
+            <a href="#">View Protocols →</a>
+        </div>
 
-<h2>🔬 Clinical Hub</h2>
+        <div class="card">
+            <div class="icon">👶</div>
+            <h3>ROP Clinical Hub</h3>
+            <p>Retinopathy of Prematurity screening guidelines and clinical tools.</p>
+            <a href="#">Explore ROP Hub →</a>
+        </div>
 
-<p>
-Practical knowledge beyond textbooks.
-</p>
-
-</div>
-
-
-<div class="cards">
-
-<div class="card">
-
-<div class="icon">🩺</div>
-
-<h3>Clinical Procedures</h3>
-
-<p>
-Step-by-step learning resources for common optometry procedures.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">👶</div>
-
-<h3>ROP Hub</h3>
-
-<p>
-ROP learning resources and useful clinical calculations.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="icon">🧮</div>
-
-<h3>PCA Calculator</h3>
-
-<p>
-Calculate post-conceptional age for ROP-related learning and screening.
-</p>
-
-</div>
-
-</div>
-
+        <div class="card">
+            <div class="icon">🧮</div>
+            <h3>PCA Calculator</h3>
+            <p>Calculate Post-Conceptional Age for ROP screening timelines.</p>
+            <a href="#">Open Calculator →</a>
+        </div>
+    </div>
 </section>
 
 
 <section id="research">
-
-<div class="highlight">
-
-<h2>📊 Research Hub</h2>
-
-<p>
-Research methodology, literature review, research papers,
-statistics and useful resources for optometry researchers.
-</p>
-
-<a href="#" class="btn">
-Research Resources →
-</a>
-
-</div>
-
+    <div class="highlight">
+        <h2>📊 Research & Academic Hub</h2>
+        <p>Research methodology, literature search, paper publishing guidance, and statistical analysis for optometry researchers.</p>
+        <a href="#" class="btn">Explore Research Resources →</a>
+    </div>
 </section>
 
-
-<section>
-
-<div class="highlight">
-
-<h2>🤖 AI Hub</h2>
-
-<p>
-Explore how Artificial Intelligence can help in Optometry,
-education, research and clinical learning.
-</p>
-
-<a href="#" class="btn">
-AI Hub — Coming Soon
-</a>
-
-</div>
-
+<!-- Visitor Counter & Analytics Section -->
+<section style="background: #ffffff; text-align: center; border-radius: 12px; margin: 20px 7%; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+    <h3 style="color: #0d253f; font-size: 1.1rem; margin-bottom: 8px;">📈 Live Visitor Tracker</h3>
+    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">Tracking total visits to Atish OptoHub</p>
+    <a href="https://www.hitwebcounter.com" target="_blank">
+        <img src="https://hitwebcounter.com/counter/counter.php?page=19054321&style=0006&nbdigits=5&type=page&initCount=0" title="Counter Widget" Alt="Visit Counter"   border="0" />
+    </a>
 </section>
 
+<!-- Floating Widgets (WhatsApp & AI Assistant) -->
+<div class="floating-container">
+    <a href="https://wa.me/918405850810?text=Hello%20Atish%20OptoHub!" target="_blank" class="float-btn btn-whatsapp" title="WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <div class="float-btn btn-ai" onclick="toggleAIChat()" title="AI Assistant">
+        <i class="fa-solid fa-robot"></i>
+    </div>
+</div>
 
-<!-- Professional Footer with Founder Profile -->
-<footer style="background-color: #1a252f; color: #ecf0f1; padding: 40px 20px 20px 20px; font-family: sans-serif;">
-  <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+<!-- AI Chat Box UI -->
+<div class="ai-chat-box" id="aiChatPopup">
+    <div class="ai-chat-header">
+        <span>🤖 OptoHub AI Assistant</span>
+        <span style="cursor:pointer;" onclick="toggleAIChat()">✕</span>
+    </div>
+    <div class="ai-chat-messages" id="chatMessages">
+        <div class="message bot-msg">
+            Hello! 👋 I am <strong>Atish OptoHub AI</strong>. Ask me about Diagnostics (OCT, FFA), Vision Therapy, Cornea, or any of our 11 Optometry modules!
+        </div>
+    </div>
+    <div class="ai-chat-input-area">
+        <input type="text" id="userInput" placeholder="Ask a question..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<!-- Footer with Founder Profile -->
+<footer>
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; text-align: left;">
     
-    <!-- Column 1: Brand & Vision -->
     <div style="flex: 1.2; min-width: 250px;">
       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
         <span style="font-size: 2rem;">👁️</span>
@@ -670,31 +515,91 @@ AI Hub — Coming Soon
       </p>
     </div>
 
-    <!-- Column 2: Founder Profile (YAHAN APNI DETAILS EDIT KAREIN) -->
     <div style="flex: 1.2; min-width: 250px;">
-      <h4 style="color: #3498db; margin-bottom: 12px; font-size: 1.1rem;">About the Author</h4>
+      <h4 style="color: #3498db; margin-bottom: 12px; font-size: 1.1rem;">About the Founder</h4>
       <p style="font-size: 0.95rem; font-weight: bold; color: #ffffff; margin-bottom: 4px;">Atish Kumar Singh</p>
-      <p style="font-size: 0.85rem; color: #bdc3c7; margin-bottom: 4px;">Senior Consultant Optometrist</p>
-      <p style="font-size: 0.85rem; color: #bdc3c7; margin-bottom: 10px;">B.Optom | M.Optom PhDScholar</p>
+      <p style="font-size: 0.85rem; color: #bdc3c7; margin-bottom: 4px;">Senior Consultant Optometrist & OT Supervisor</p>
+      <p style="font-size: 0.85rem; color: #bdc3c7; margin-bottom: 10px;">B.Optom | M.Optom</p>
       <p style="font-size: 0.85rem; color: #95a5a6; line-height: 1.4;">
-        Passionate about binocular vision, clinical optometry education, and ophthalmic surgical care.
+        Passionate about binocular vision, vision therapy, clinical optometry education, and surgical care.
       </p>
     </div>
 
-    <!-- Column 3: Contact & Links (YAHAN EMAIL EDIT KAREIN) -->
     <div style="flex: 1; min-width: 220px;">
-      <h4 style="color: #3498db; margin-bottom: 12px; font-size: 1.1rem;">Contact</h4>
+      <h4 style="color: #3498db; margin-bottom: 12px; font-size: 1.1rem;">Contact & Support</h4>
       <p style="font-size: 0.9rem; margin-bottom: 8px; color: #bdc3c7;">
         📧 Email:<br>
-        <a href="mailto:AAPKA_EMAIL_HERE@gmail.com" style="color: #3498db; text-decoration: none; word-break: break-all;">kumaratish065@gmail.com</a>
+        <a href="mailto:kumaratish065@gmail.com" style="color: #3498db; text-decoration: none; word-break: break-all;">kumaratish065@gmail.com</a>
       </p>
-      <p style="font-size: 0.9rem; color: #bdc3c7; margin-top: 10px;">India</p>
+      <p style="font-size: 0.9rem; color: #bdc3c7; margin-top: 10px;">📍 India</p>
     </div>
-
   </div>
 
-  <!-- Bottom Copyright -->
   <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #34495e; font-size: 0.85rem; color: #95a5a6;">
-    © 2026 Atish OptoHub. All rights reserved. 
+    © 2026 Atish OptoHub. All rights reserved.
   </div>
 </footer>
+
+<!-- Interactive AI Chat Script -->
+<script>
+    function toggleAIChat() {
+        var box = document.getElementById("aiChatPopup");
+        if (box.style.display === "flex") {
+            box.style.display = "none";
+        } else {
+            box.style.display = "flex";
+        }
+    }
+
+    function handleKeyPress(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    }
+
+    function sendMessage() {
+        var inputField = document.getElementById("userInput");
+        var text = inputField.value.trim();
+        if (text === "") return;
+
+        var messagesContainer = document.getElementById("chatMessages");
+
+        var userDiv = document.createElement("div");
+        userDiv.className = "message user-msg";
+        userDiv.textContent = text;
+        messagesContainer.appendChild(userDiv);
+
+        inputField.value = "";
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        setTimeout(function() {
+            var botReply = generateOptoReply(text.toLowerCase());
+            var botDiv = document.createElement("div");
+            botDiv.className = "message bot-msg";
+            botDiv.innerHTML = botReply;
+            messagesContainer.appendChild(botDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 500);
+    }
+
+    function generateOptoReply(query) {
+        if (query.includes("diagnostic") || query.includes("investigation") || query.includes("oct") || query.includes("perimetry")) {
+            return "<strong>Diagnostic & Investigations:</strong> Includes OCT, Corneal Topography, Visual Field/Perimetry, FFA, and Pachymetry techniques.";
+        } else if (query.includes("vision therapy") || query.includes("vt") || query.includes("exercise")) {
+            return "<strong>Vision Therapy:</strong> Dedicated to Binocular vision rehabilitation, Brock string exercises, Accommodation/Convergence therapy, and Neuro-optometry.";
+        } else if (query.includes("cornea")) {
+            return "<strong>Cornea:</strong> Primary refractive power (~+43D). Contains 6 layers: Epithelium, Bowman's, Stroma, Dua's, Descemet's, Endothelium.";
+        } else if (query.includes("retina")) {
+            return "<strong>Retina:</strong> 10 layers. Essential for visual phototransduction and processing.";
+        } else if (query.includes("hello") || query.includes("hi") || query.includes("hey")) {
+            return "Hello Optometrist! How can I assist you with Optometry notes today?";
+        } else if (query.includes("contact") || query.includes("atish")) {
+            return "You can contact <strong>Atish Kumar Singh</strong> directly via WhatsApp!";
+        } else {
+            return "Thank you! I am trained on 11 Optometry Modules including <strong>Diagnostics</strong>, <strong>Vision Therapy</strong>, <strong>Cornea</strong>, and <strong>Retina</strong>.";
+        }
+    }
+</script>
+
+</body>
+</html>
