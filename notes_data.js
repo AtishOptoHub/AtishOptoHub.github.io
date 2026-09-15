@@ -67,7 +67,7 @@ const optometryNotes = {
             }
         ]
     },
-    "binocular_vision": {
+    "binocular": {
         title: "Binocular Vision & Ocular Motility",
         topics: [
             {
