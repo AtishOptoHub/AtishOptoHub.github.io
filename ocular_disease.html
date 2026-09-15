@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitreous Body & Diseases - Optometry Notes</title>
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --accent-bg: #f0f9ff;
+            --tag-bg: #e0f2fe;
+            --tag-text: #0369a1;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #0f172a;
+                --bg-card: #1e293b;
+                --text-main: #f8fafc;
+                --text-muted: #94a3b8;
+                --border: #334155;
+                --accent-bg: #0f2b48;
+                --tag-bg: #1e3a8a;
+                --tag-text: #93c5fd;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--bg-card);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin: 16px 0 8px 0;
+            color: var(--text-main);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        ul ul {
+            margin-top: 6px;
+            margin-bottom: 6px;
+            padding-left: 10px;
+        }
+
+        ul ul li::before {
+            content: "–";
+            color: var(--text-muted);
+        }
+
+        .highlight-box {
+            background: var(--accent-bg);
+            border-left: 4px solid var(--primary);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 12px 0;
+            font-size: 0.95rem;
+        }
+
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--accent-bg);
+            border: 1px dashed var(--primary);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="badge">Ocular Disease - II (Posterior Segment)</span>
+        <h1>Vitreous Body & Vitreous Diseases</h1>
+        <p class="subtitle">Complete Lecture Notes with Anatomic Diagrams</p>
+    </header>
+
+    <!-- SECTION 1 -->
+    <div class="card">
+        <h2>1. Anatomy & Properties of Vitreous</h2>
+        
+        <!-- DIAGRAM 1: Eye & Vitreous Structure -->
+        <div class="diagram-container">
+            <svg width="450" height="260" viewBox="0 0 450 260" xmlns="http://www.w3.org/2000/svg">
+                <!-- Eye Globe -->
+                <circle cx="200" cy="130" r="100" fill="#f0f9ff" stroke="#0284c7" stroke-width="3"/>
+                <!-- Lens -->
+                <ellipse cx="120" cy="130" rx="10" ry="30" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+                <!-- Vitreous Area -->
+                <path d="M 125,102 A 100 100 0 1 1 125,158 Z" fill="#e0f2fe" opacity="0.6"/>
+                <!-- Optic Nerve -->
+                <rect x="295" y="120" width="40" height="20" fill="#cbd5e1"/>
+                <!-- Labels & Indicators -->
+                <line x1="200" y1="130" x2="350" y2="40" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4"/>
+                <text x="355" y="45" font-size="12" fill="#0284c7" font-weight="bold">Vitreous Body (80% Volume)</text>
+                
+                <line x1="120" y1="100" x2="50" y2="40" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4"/>
+                <text x="10" y="35" font-size="12" fill="#0284c7" font-weight="bold">Crystalline Lens</text>
+
+                <line x1="290" y1="130" x2="360" y2="130" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4"/>
+                <text x="365" y="135" font-size="12" fill="#0284c7" font-weight="bold">Optic Disc</text>
+
+                <line x1="170" y1="225" x2="230" y2="245" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4"/>
+                <text x="235" y="250" font-size="12" fill="#0284c7" font-weight="bold">Ora Serrata (Vitreous Base)</text>
+            </svg>
+        </div>
+
+        <ul>
+            <li><strong>General Structure:</strong>
+                <ul>
+                    <li>Transparent Gel filling the vitreous cavity.</li>
+                    <li>Makes up to <strong>80% volume</strong> of the eye.</li>
+                    <li>Provides support to the delicate inner structures of the eye.</li>
+                    <li>Provides the pathway for nutrients utilized by the lens, ciliary body, and retina.</li>
+                </ul>
+            </li>
+            <li><strong>Composition:</strong>
+                <ul>
+                    <li>Water: ~99%</li>
+                    <li>Delicate network of collagen fibrils attached to the Internal Limiting Membrane (ILM) of the retina.</li>
+                    <li>Hyaluronic acid, hyalocytes, and mucopolysaccharides.</li>
+                </ul>
+            </li>
+            <li><strong>Properties:</strong>
+                <ul>
+                    <li>Hydrophilic gel.</li>
+                    <li>Gets readily liquefied as a result of age changes and trauma.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="card">
+        <h2>2. Vitreous Attachments & Detachment Types</h2>
+        <h3>Vitreous Attachments</h3>
+        <ul>
+            <li>Posterior lens surface (Weigert ligament)</li>
+            <li>Vitreous base (Ora Serrata) — <em>Strongest attachment</em></li>
+            <li>Optic disc</li>
+            <li>Paramacular area</li>
+            <li>Paravascular areas</li>
+        </ul>
+
+        <h3>Types of Vitreous Detachment</h3>
+        <ul>
+            <li>Posterior</li>
+            <li>Basal</li>
+            <li>Anterior / Central</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="card">
+        <h2>3. Posterior Vitreous Detachment (PVD)</h2>
+        
+        <!-- DIAGRAM 2: PVD Visual Representation -->
+        <div class="diagram-container">
+            <svg width="450" height="220" viewBox="0 0 450 220" xmlns="http://www.w3.org/2000/svg">
+                <!-- Eye Outline -->
+                <path d="M 100,110 A 80 80 0 1 1 260,110 A 80 80 0 1 1 100,110" fill="#none" stroke="#64748b" stroke-width="2"/>
+                <!-- Retinal Wall -->
+                <path d="M 105,110 A 75 75 0 1 1 255,110" fill="#none" stroke="#ef4444" stroke-width="3"/>
+                <!-- Detached Vitreous Cortex -->
+                <path d="M 120,80 Q 180,95 240,110 Q 180,140 120,140" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" stroke-dasharray="3"/>
+                <!-- Weiss Ring Indicator -->
+                <circle cx="238" cy="110" r="6" fill="none" stroke="#f59e0b" stroke-width="2"/>
+                <!-- Labels -->
+                <text x="250" y="95" font-size="11" fill="#f59e0b" font-weight="bold">Weiss Ring</text>
+                <text x="265" y="115" font-size="11" fill="#ef4444" font-weight="bold">Retina</text>
+                <text x="140" y="115" font-size="11" fill="#0284c7" font-weight="bold">Detached Posterior Hyaloid</text>
+                <text x="130" y="170" font-size="11" fill="#64748b">Optically Clear Sub-hyaloid Space</text>
+            </svg>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Definition:</strong> Separation of the cortical vitreous from retina anywhere posterior to the vitreous base (3-4 mm wide area of attachment at ora serrata).
+        </div>
+        <ul>
+            <li><strong>Etiology & Characteristics:</strong>
+                <ul>
+                    <li>A Senile phenomenon occurring with vitreous liquefaction.</li>
+                    <li>A hole develops in the posterior hyaloid membrane.</li>
+                    <li>More common among aphakics and myopes.</li>
+                    <li>Causes: Senile, Myopia, Post-inflammatory, Post-vitreous hemorrhage, Diabetes Mellitus.</li>
+                </ul>
+            </li>
+            <li><strong>Clinical Features & Symptoms:</strong>
+                <ul>
+                    <li>Flashes of light and sudden floaters.</li>
+                    <li>Collapsed vitreous behind the lens.</li>
+                    <li>Optically clear space between detached posterior hyaloid phase and retina.</li>
+                    <li><strong>Weiss Ring or Fuchs Ring:</strong> Pathognomonic sign.</li>
+                </ul>
+            </li>
+            <li><strong>Complications:</strong> Retinal breaks, Vitreous hemorrhage, Retinal hemorrhage, Cystoid maculopathy.</li>
+            <li><strong>Diagnosis & Treatment:</strong>
+                <ul>
+                    <li>Examine within 48–72 hours of symptom onset (highest tear risk within 6 weeks).</li>
+                    <li>Re-examine 6 weeks after initial onset (tears may be asymptomatic).</li>
+                    <li>Treatment: Conservative management, bed rest + head elevation, treat underlying cause, or laser photocoagulation.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="card">
+        <h2>4. Vitreous Hemorrhage (VH)</h2>
+        <p><strong>Definition:</strong> Leakage of blood into the areas in and around the vitreous humor of the eye, usually from retinal vessels (may present as preretinal or intragel hemorrhage).</p>
+        
+        <h3>Causes</h3>
+        <ul>
+            <li>Retinal tear, PVD, and Retinal Detachment (RD).</li>
+            <li>Trauma to eye.</li>
+            <li>Inflammatory diseases.</li>
+            <li>Vascular disorders (e.g., Hypertensive Retinopathy).</li>
+            <li>Metabolic diseases (e.g., Diabetic Retinopathy).</li>
+            <li>Bleeding disorders (e.g., Purpura, Hemophilia).</li>
+        </ul>
+
+        <h3>Symptoms & Signs</h3>
+        <ul>
+            <li><strong>Symptoms:</strong> Sudden painless loss of vision, floaters of sudden onset (small VH), red hue/shadows, visual field scotomas, photopsia.</li>
+            <li><strong>Signs:</strong> Red fundus reflex may be absent, no view to fundus, red blood cells seen in anterior vitreous.</li>
+            <li><strong>Chronic VH:</strong> Yellow-ochre appearance from Hb breakdown.</li>
+        </ul>
+
+        <h3>Diagnosis</h3>
+        <ul>
+            <li>History taking.</li>
+            <li>Indirect ophthalmoscopy under full pupillary dilation.</li>
+            <li><strong>USG B-Scan</strong>.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="card">
+        <h2>5. Vitrectomy</h2>
+        
+        <!-- DIAGRAM 3: Pars Plana Vitrectomy -->
+        <div class="diagram-container">
+            <svg width="450" height="200" viewBox="0 0 450 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Eye Outline -->
+                <circle cx="200" cy="100" r="75" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+                <!-- Cornea/Lens -->
+                <ellipse cx="130" cy="100" rx="6" ry="20" fill="#bae6fd"/>
+                <!-- Ports / Instruments Insertion -->
+                <line x1="140" y1="40" x2="175" y2="80" stroke="#0284c7" stroke-width="3"/>
+                <line x1="140" y1="160" x2="175" y2="120" stroke="#f59e0b" stroke-width="3"/>
+                <!-- Labels -->
+                <text x="20" y="35" font-size="11" fill="#0284c7" font-weight="bold">Vitreous Cutter / Port</text>
+                <text x="20" y="170" font-size="11" fill="#f59e0b" font-weight="bold">Light Pipe / Infusion Line</text>
+                <text x="250" y="105" font-size="11" fill="#64748b">Pars Plana Entry (3-4mm from limbus)</text>
+            </svg>
+        </div>
+
+        <p><strong>Definition:</strong> Surgical removal of the vitreous.</p>
+
+        <h3>Types</h3>
+        <ul>
+            <li><strong>Anterior Vitrectomy:</strong> Removal of anterior part of vitreous.</li>
+            <li><strong>Core Vitrectomy:</strong> Removal of central bulk (indicated in endophthalmitis).</li>
+            <li><strong>Subtotal and Total Vitrectomy:</strong> Almost whole vitreous is removed.</li>
+        </ul>
+
+        <h3>Techniques & Indications</h3>
+        <ul>
+            <li><strong>Open-Sky Vitrectomy:</strong>
+                <ul>
+                    <li>Limbal area approach for anterior vitrectomy only.</li>
+                    <li><em>Indications:</em> Vitreous loss during cataract extraction, aphakic keratoplasty, AC reconstruction post-trauma, removal of subluxated/anteriorly dislocated lens.</li>
+                </ul>
+            </li>
+            <li><strong>Closed Vitrectomy (Pars Plana Vitrectomy - PPV):</strong>
+                <ul>
+                    <li>Pars plana approach for anterior, core, subtotal, and total vitrectomy.</li>
+                    <li><em>Indications:</em> Endophthalmitis with vitreous loss / abscess, vitreous hemorrhage, removal of intraocular foreign bodies, removal of dropped nucleus or IOL from vitreous cavity.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="card">
+        <h2>6. Vitreous Opacities</h2>
+        <p>Vitreous is a transparent structure; any non-transparent structure in it forms an opacity causing symptoms of <strong>FLOATERS</strong>.</p>
+
+        <ul>
+            <li><strong>Muscae Volitantes:</strong> Physiological opacities from primitive hyaloid vasculature residues; fine dots/filaments drifting against bright backgrounds.</li>
+            <li><strong>Persistent Hyperplastic Primary Vitreous (PHPV):</strong>
+                <ul>
+                    <li>Failure of primary vitreous to regress + hypoplasia of posterior vascular network.</li>
+                    <li>White pupillary reflex (leukocoria) seen after birth.</li>
+                    <li>Differentials: Retinoblastoma, Congenital Cataract, ROP. (CT scan helps in diagnosis).</li>
+                    <li>Treatment: Pars plana lensectomy, membrane excision with anterior vitrectomy. Visual prognosis is poor.</li>
+                </ul>
+            </li>
+            <li><strong>Inflammatory Opacities:</strong> Exudates poured into vitreous in Anterior Uveitis, Posterior Uveitis, Pars Planitis, Panuveitis, Endophthalmitis.</li>
+            <li><strong>Vitreous Aggregates & Condensation:</strong> Commonest cause of opacities (condensation of collagen fibrils; senile, myopic, post-traumatic, post-inflammatory).</li>
+            <li><strong>Asteroid Hyalosis:</strong> Small white rounded bodies suspended in vitreous gel (calcium-containing lipids); unilateral, asymptomatic in old patients with healthy vitreous.</li>
+            <li><strong>Synchysis Scintillans:</strong> "Shower of golden rain" on ophthalmoscopy (cholesterol crystals); symptomless and untreatable.</li>
+            <li><strong>Red & Tumor Cell Opacities:</strong> Caused by small VH or floating tumor cells in Retinoblastoma / Reticulum cell sarcoma.</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© Optometry Clinical Notes • Powered by GitHub Pages</p>
+    </footer>
+</div>
+
+</body>
+</html>
