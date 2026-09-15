@@ -170,4 +170,310 @@
         .img-caption {
             font-size: 0.88rem;
             color: #64748b;
-            margi
+            margin-top: 10px;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        /* Tables & Highlights */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+        }
+
+        table th {
+            background-color: #0077b6;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        @media(max-width: 768px) {
+            body { flex-direction: column; height: auto; overflow: auto; }
+            .sidebar { width: 100%; height: auto; }
+            .main-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>Clinical Optometry</h2>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item active" onclick="showTopic('hirschberg')">1. Hirschberg Test</li>
+            <li class="nav-item" onclick="showTopic('krimsky')">2. Krimsky Test</li>
+            <li class="nav-item" onclick="showTopic('bruckner')">3. Bruckner Test</li>
+            <li class="nav-item" onclick="showTopic('cover-test')">4. Cover Uncover Test</li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+
+        <!-- TOPIC 1: HIRSCHBERG TEST -->
+        <div id="hirschberg" class="topic-card active">
+            <h1 class="test-title">1. HIRSCHBERG TEST</h1>
+            
+            <div class="section-title">Definition</div>
+            <ul>
+                <li>Hirschberg test is an objective clinical method used to estimate the angle of ocular deviation by observing the position of corneal light reflex (Purkinje image I) in each eye when a light is shone from a fixed distance.</li>
+            </ul>
+
+            <div class="section-title">Principle</div>
+            <ul>
+                <li>When light is projected into the eyes, the corneal reflex is centrally located in both eyes during normal alignment.</li>
+                <li>In strabismus, the reflex shifts away from the center in the deviating eye.</li>
+                <li>Every 1 mm displacement of the corneal light reflex corresponds to approximately 7 to 8 degrees (or 15 to 20 Prism Diopters) of ocular deviation.</li>
+            </ul>
+
+            <div class="section-title">Procedure</div>
+            
+            <p class="bold">Patient Position</p>
+            <ul>
+                <li>Seated comfortably facing the examiner.</li>
+                <li>Fixating directly on the central light source.</li>
+            </ul>
+
+            <p class="bold">Examiner Position</p>
+            <ul>
+                <li>Positioned directly in front at 33 cm (near evaluation) or 1 meter distance.</li>
+                <li>Holds pen torch or light source directly along the line of sight.</li>
+            </ul>
+
+            <p class="bold">Steps</p>
+            <ul>
+                <li>Ask patient to fixate steadily on the light source.</li>
+                <li>Shine light directly into both eyes simultaneously.</li>
+                <li>Observe and compare position of corneal light reflex relative to the pupil margin in both eyes.</li>
+                <li>Calculate displacement:
+                    <ul>
+                        <li>At pupil margin (~1.5 mm displacement) = ~15° / ~30 PD deviation.</li>
+                        <li>Midway between pupil & limbus (~3 mm displacement) = ~30° / ~60 PD deviation.</li>
+                        <li>At limbus (~4.5 mm displacement) = ~45° / ~90 PD deviation.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="section-title">Normal Finding</div>
+            <p>Corneal light reflex is <span class="bold">symmetrical and slightly nasal to pupil center (~0.5 mm)</span> in both eyes due to normal Angle Alpha.</p>
+
+            <!-- Medical Diagram: Hirschberg Reflex Positions -->
+            <div class="diagram-container">
+                <svg width="600" height="230" viewBox="0 0 600 230">
+                    <!-- Normal Alignment -->
+                    <g transform="translate(20, 20)">
+                        <circle cx="60" cy="50" r="45" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+                        <circle cx="60" cy="50" r="22" fill="#0f172a"/>
+                        <circle cx="56" cy="48" r="4" fill="#ffffff"/>
+                        <circle cx="190" cy="50" r="45" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+                        <circle cx="190" cy="50" r="22" fill="#0f172a"/>
+                        <circle cx="186" cy="48" r="4" fill="#ffffff"/>
+                        <text x="125" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#0284c7">Normal (Symmetrical Reflex)</text>
+                    </g>
+                    <!-- Esotropia -->
+                    <g transform="translate(320, 20)">
+                        <circle cx="60" cy="50" r="45" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+                        <circle cx="60" cy="50" r="22" fill="#0f172a"/>
+                        <circle cx="56" cy="48" r="4" fill="#ffffff"/>
+                        <!-- Deviated Eye (Inward Deviation, Temporal Light Displacement) -->
+                        <circle cx="175" cy="50" r="45" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+                        <circle cx="165" cy="50" r="22" fill="#0f172a"/>
+                        <circle cx="185" cy="48" r="4" fill="#ffffff"/>
+                        <text x="125" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#e11d48">Right Esotropia (Temporal Reflex)</text>
+                    </g>
+                </svg>
+                <div class="img-caption">Figure 1.1: Corneal Light Reflex Displacement Patterns in Hirschberg Test</div>
+            </div>
+        </div>
+
+        <!-- TOPIC 2: KRIMSKY TEST -->
+        <div id="krimsky" class="topic-card">
+            <h1 class="test-title">2. KRIMSKY TEST</h1>
+            
+            <div class="section-title">Definition</div>
+            <ul>
+                <li>The Krimsky test is a quantitative modification of the Hirschberg test that utilizes prisms to measure the exact angle of ocular deviation by neutralizing displaced corneal light reflex.</li>
+            </ul>
+
+            <div class="section-title">Principle</div>
+            <ul>
+                <li>Prisms bend light rays toward their base, shifting the perceived image toward the apex.</li>
+                <li>By placing a prism in front of either the fixating or deviating eye, the light beam is optically redirected until the corneal light reflex in the deviating eye centers symmetrically.</li>
+                <li>The value of prism power (in Prism Diopters) required to center the reflex represents the magnitude of strabismus.</li>
+            </ul>
+
+            <div class="section-title">Procedure</div>
+            
+            <p class="bold">Patient Position</p>
+            <ul>
+                <li>Seated comfortably, fixating on a point light source (penlight at 33 cm or 1 m).</li>
+            </ul>
+
+            <p class="bold">Examiner Position</p>
+            <ul>
+                <li>Seated directly in front of the patient at eye level.</li>
+            </ul>
+
+            <p class="bold">Steps</p>
+            <ul>
+                <li>Perform baseline Hirschberg test to identify deviating eye and orientation of deviation.</li>
+                <li>Place prism bar or loose prism over the fixating eye (Modified Krimsky) or deviating eye (Standard Krimsky).</li>
+                <li>Orient base according to deviation type:
+                    <ul>
+                        <li>Base-Out (BO) for Esotropia</li>
+                        <li>Base-In (BI) for Exotropia</li>
+                        <li>Base-Down (BD) for Hypertropia</li>
+                        <li>Base-Up (BU) for Hypotropia</li>
+                    </ul>
+                </li>
+                <li>Increase prism power incrementally until corneal light reflex centers symmetrically in both eyes.</li>
+                <li>Record final prism value as deviation measurement.</li>
+            </ul>
+
+            <div class="section-title">Normal Finding</div>
+            <p>0 Prism Diopters (No prism required; reflex is naturally symmetric).</p>
+
+            <!-- Medical Diagram: Krimsky Prism Neutralization -->
+            <div class="diagram-container">
+                <svg width="550" height="180" viewBox="0 0 550 180">
+                    <circle cx="275" cy="20" r="12" fill="#fbbf24"/>
+                    <text x="275" y="45" text-anchor="middle" font-size="11" fill="#333">Penlight Source</text>
+                    
+                    <circle cx="150" cy="120" r="35" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
+                    <circle cx="150" cy="120" r="16" fill="#0f172a"/>
+                    <circle cx="147" cy="117" r="3" fill="#ffffff"/>
+                    
+                    <circle cx="400" cy="120" r="35" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
+                    <circle cx="400" cy="120" r="16" fill="#0f172a"/>
+                    <circle cx="397" cy="117" r="3" fill="#ffffff"/>
+                    
+                    <polygon points="350,90 350,150 335,120" fill="#38bdf8" opacity="0.6" stroke="#0284c7"/>
+                    <text x="325" y="125" font-size="11" font-weight="bold" fill="#0369a1">Prism</text>
+                </svg>
+                <div class="img-caption">Figure 2.1: Optical Neutralization of Reflex Shift using Prism in Krimsky Test</div>
+            </div>
+        </div>
+
+        <!-- TOPIC 3: BRUCKNER TEST -->
+        <div id="bruckner" class="topic-card">
+            <h1 class="test-title">3. BRUCKNER TEST</h1>
+            
+            <div class="section-title">Definition</div>
+            <ul>
+                <li>The Brückner test is a transillumination screening procedure using a direct ophthalmoscope to compare red fundus reflexes simultaneously in both eyes to identify strabismus, anisometropia, media opacities, or posterior pole abnormalities.</li>
+            </ul>
+
+            <div class="section-title">Principle</div>
+            <ul>
+                <li>Coaxial illumination from direct ophthalmoscope reflects off the fundus through the pupil, producing red reflex in both eyes.</li>
+                <li>In normal binocular alignment and emmetropia, light distribution is equal, resulting in identical red reflex intensity and color in both pupils.</li>
+                <li>In strabismus, light off the deviating eye strikes extrafoveal retina (which absorbs less light), rendering the reflex in the deviating eye significantly brighter and lighter compared to fixating eye.</li>
+            </ul>
+
+            <div class="section-title">Procedure</div>
+            
+            <p class="bold">Environment Setup</p>
+            <ul>
+                <li>Perform in a dark room to maximize pupil dilation.</li>
+            </ul>
+
+            <p class="bold">Examiner Position</p>
+            <ul>
+                <li>Stand 0.5 to 1 meter away from patient.</li>
+                <li>Look through direct ophthalmoscope dial set to "0" or patient's refractive correction.</li>
+            </ul>
+
+            <p class="bold">Steps</p>
+            <ul>
+                <li>Direct large coaxial light beam to illuminate both eyes simultaneously.</li>
+                <li>Instruct patient to fixate directly on the ophthalmoscope light.</li>
+                <li>Observe and compare both red reflexes simultaneously for:
+                    <ul>
+                        <li>Symmetry in brightness</li>
+                        <li>Color shade</li>
+                        <li>Clarity and opacities</li>
+                        <li>Crescent shadows (indicates uncorrected refractive error/anisometropia)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="section-title">Normal Finding</div>
+            <p>Both pupils demonstrate an <span class="bold">equal, clear, symmetric red fundus reflex</span>.</p>
+
+            <!-- Medical Diagram: Bruckner Red Reflex Comparison -->
+            <div class="diagram-container">
+                <svg width="500" height="160" viewBox="0 0 500 160">
+                    <g transform="translate(30,20)">
+                        <circle cx="40" cy="50" r="30" fill="#1e293b"/>
+                        <circle cx="40" cy="50" r="18" fill="#ef4444"/>
+                        <circle cx="140" cy="50" r="30" fill="#1e293b"/>
+                        <circle cx="140" cy="50" r="18" fill="#ef4444"/>
+                        <text x="90" y="110" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">Equal Red Reflex (Normal)</text>
+                    </g>
+                    <g transform="translate(270,20)">
+                        <circle cx="40" cy="50" r="30" fill="#1e293b"/>
+                        <circle cx="40" cy="50" r="18" fill="#ef4444"/>
+                        <circle cx="140" cy="50" r="30" fill="#1e293b"/>
+                        <circle cx="140" cy="50" r="18" fill="#fca5a5"/>
+                        <text x="90" y="110" text-anchor="middle" font-size="12" font-weight="bold" fill="#dc2626">Asymmetric Reflex (Deviated Eye Brighter)</text>
+                    </g>
+                </svg>
+                <div class="img-caption">Figure 3.1: Comparison of Simultaneous Fundus Red Reflexes in Brückner Testing</div>
+            </div>
+        </div>
+
+        <!-- TOPIC 4: COVER UNCOVER TEST -->
+        <div id="cover-test" class="topic-card">
+            <h1 class="test-title">4. COVER UNCOVER TEST</h1>
+
+            <h2>Definition</h2>
+            <ul>
+                <li>Cover test is an objective clinical test of ocular alignment used to detect, differentiate and measure heterotropia (manifest deviation) and heterophoria (latent deviation).</li>
+                <li>It is considered the gold standard test for evaluating ocular misalignment (strabismus).</li>
+            </ul>
+
+            <div class="diagram-container">
+                <svg width="100%" height="200" viewBox="0 0 600 200">
+                    <circle cx="300" cy="25" r="8" fill="#0077b6"/>
+                    <text x="300" y="48" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">Fixation Target (6m / 40cm)</text>
+                    
+                    <circle cx="200" cy="130" r="28" fill="#f0f9ff" stroke="#0077b6" stroke-width="3"/>
+                    <circle cx="200" cy="118" r="10" fill="#0077b6"/>
+                    <text x="200" y="180" text-anchor="middle" font-size="12" fill="#333">Fixating Eye</text>
+                    
+                    <circle cx="400" cy="130" r="28" fill="#f0f9ff" stroke="#0077b6" stroke-width="3"/>
+                    <circle cx="410" cy="120" r="10" fill="#e11d48"/>
+                    <rect x="360" y="90" width="10" height="80" fill="#334155" rx="3"/>
+                    <text x="400" y="180" text-anchor="middle" font-size="12" fill="#333">Covered Eye (Occluder)</text>
+                </svg>
+                <div class="img-caption">Figure 4.1: Ocular Alignment Assessment via Dissociation with Occluder</div>
+            </div>
+
+            <h2>AIMS / PURPOSES OF COVER TEST</h2>
+            <ul>
+                <li>Detect presence of ocular deviation.</li>
+                <li>Differentiate heterophoria from heterotropi
