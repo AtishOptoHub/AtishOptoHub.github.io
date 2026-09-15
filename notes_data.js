@@ -233,5 +233,26 @@ const optometryNotes = {
                 `
             }
         ]
+    },
+
+    "binocular": {
+        title: "Binocular Vision & Ocular Motility",
+        topics: [
+            {
+                title: "1. Physiology / Pre-requisites for Development of BSV",
+                content: `
+                    <p>To achieve <b>Binocular Single Vision (BSV)</b>—the ability to use both eyes together to perceive a single, three-dimensional image—three primary mechanisms must function correctly:</p>
+                    <br>
+                    <h4>The Eyes as a Sensorimotor Unit</h4>
+                    <h5 style="color:#0077b6; margin-top:10px;">1. Sensory System / Mechanism</h5>
+                    <p>This involves how the eyes receive and transmit visual information to the brain.</p>
+                    <ul>
+                        <li><b>Image Equality:</b> Both eyes must receive images of approximately equal clarity (focus) and size. Large discrepancies (like aniseikonia) can prevent fusion.</li>
+                        <li><b>Corresponding Retinal Areas:</b> Images must fall on "corresponding" points on the retina so that the brain can perceive the eyes as cyclopean (merging two viewpoints into one central perspective).</li>
+                        <li><b>Normal Visual Pathways:</b> The neural "wiring" from the retina to the brain must be intact and functioning normally.</li>
+                    </ul>
+                `
+            }
+        ]
     }
 };
