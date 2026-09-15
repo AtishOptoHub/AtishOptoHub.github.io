@@ -1,5 +1,4 @@
 // Optometry Vortex - Central Notes Data
-// Aapko jab bhi naya topic add ya update karna ho, bas yahan edit karein.
 
 const optometryNotes = {
     "anatomy": {
@@ -66,17 +65,8 @@ const optometryNotes = {
                 `
             }
         ]
-    "pathology": {
-        title: "Ocular Pathology & Diseases",
-        topics: [
-            {
-                title: "1. Glaucoma - Classification & Diagnosis",
-                content: `
-                    <p>Primary Open Angle Glaucoma (POAG) vs Angle Closure Glaucoma</p>
-                `
-            }
-        ]
     },
+
     "binocular_vision": {
         title: "Binocular Vision & Ocular Motility",
         topics: [
