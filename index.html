@@ -110,6 +110,7 @@ nav a:hover{
     text-decoration:none;
     font-weight:bold;
     transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
 
 .btn:hover{
@@ -187,11 +188,16 @@ section{
     margin-bottom: 15px;
 }
 
-.card a{
+.card a, .card button.module-link {
     display:inline-block;
     color:#0077b6;
     text-decoration:none;
     font-weight:bold;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: left;
 }
 
 /* Job Table Styles */
@@ -303,6 +309,83 @@ section{
     color: #ffc107;
 }
 
+/* Dynamic Modal for Topics Viewer */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 20000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 850px;
+    max-height: 85vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: #0077b6;
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 { margin: 0; font-size: 1.25rem; }
+.close-modal { cursor: pointer; font-size: 1.5rem; line-height: 1; }
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Accordion Topics List */
+.topic-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.topic-header {
+    background: #f8fafc;
+    padding: 14px 18px;
+    font-weight: 600;
+    color: #0d253f;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topic-header:hover { background: #f1f5f9; }
+
+.topic-content {
+    display: none;
+    padding: 18px;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.topic-content ul {
+    margin-left: 20px;
+    margin-top: 8px;
+}
+
 /* Floating Widgets CSS */
 .floating-container {
     position: fixed; bottom: 25px; right: 25px;
@@ -385,7 +468,6 @@ footer{
     </nav>
 </header>
 
-
 <section class="hero" id="home">
     <h1>Welcome to <span>Optometry Vortex</span></h1>
     <p>
@@ -396,7 +478,6 @@ footer{
         <a href="#jobs" class="btn secondary">View Latest Vacancies</a>
     </div>
 </section>
-
 
 <section id="notes">
     <div class="section-title">
@@ -410,7 +491,7 @@ footer{
             <div class="icon">👁️</div>
             <h3>Ocular Anatomy & Physiology</h3>
             <p>Structure, layers, cornea, retina, ocular physiology, and visual pathways.</p>
-            <a href="anatomy.html">Explore Module →</a>
+            <button class="module-link" onclick="openModule('anatomy')">Explore Module →</button>
         </div>
 
         <!-- Module 2 -->
@@ -418,24 +499,23 @@ footer{
             <div class="icon">🔍</div>
             <h3>Optometric Optics & Refraction</h3>
             <p>Geometrical optics, retinoscopy, subjective/objective refraction methods.</p>
-            <a href="#">Explore Module →</a>
+            <button class="module-link" onclick="openModule('optics')">Explore Module →</button>
         </div>
 
-       <!-- Module 3 -->
-<div class="card">
-    <div class="icon">👁️</div>
-    <h3>Clinical Optometry & Procedures</h3>
-    <p>History taking, slit-lamp examination, tonometry, and routine protocols.</p>
-    <a href="Clinical Optometry & Procedure.html">Explore Module →</a>
-</div>
-</div>
+        <!-- Module 3 -->
+        <div class="card">
+            <div class="icon">👁️</div>
+            <h3>Clinical Optometry & Procedures</h3>
+            <p>History taking, slit-lamp examination, tonometry, and routine protocols.</p>
+            <button class="module-link" onclick="openModule('clinical')">Explore Module →</button>
+        </div>
 
         <!-- Module 4 -->
         <div class="card">
             <div class="icon">🔬</div>
             <h3>Ocular Pathology & Diseases</h3>
             <p>Cataract, Glaucoma, Diabetic Retinopathy, Corneal disorders, and management.</p>
-            <a href="ocular_disease.html">Explore Module →</a>
+            <button class="module-link" onclick="openModule('pathology')">Explore Module →</button>
         </div>
 
         <!-- Module 5 -->
@@ -443,7 +523,7 @@ footer{
             <div class="icon">👓</div>
             <h3>Contact Lens Science</h3>
             <p>Fitting techniques, RGP, Soft lenses, Specialty lenses, and complications.</p>
-            <a href="#">Explore Module →</a>
+            <button class="module-link" onclick="openModule('contact_lens')">Explore Module →</button>
         </div>
 
         <!-- Module 6 -->
@@ -451,7 +531,7 @@ footer{
             <div class="icon">🧠</div>
             <h3>Binocular Vision & Orthoptics</h3>
             <p>Squint assessment, cover tests, vergence, amblyopia management, and prisms.</p>
-            <a href="#">Explore Module →</a>
+            <button class="module-link" onclick="openModule('binocular_vision')">Explore Module →</button>
         </div>
 
         <!-- Module 7 -->
@@ -459,7 +539,7 @@ footer{
             <div class="icon">📊</div>
             <h3>Diagnostic & Ocular Investigation</h3>
             <p>OCT analysis, Corneal Topography, Visual Fields/Perimetry, FFA, Pachymetry.</p>
-            <a href="#">Explore Module →</a>
+            <button class="module-link" onclick="openModule('diagnostics')">Explore Module →</button>
         </div>
 
         <!-- Module 8 -->
@@ -467,7 +547,7 @@ footer{
             <div class="icon">⚡</div>
             <h3>Vision Therapy & Neuro-Optometry</h3>
             <p>VT protocols, accommodation/convergence exercises, Brock string, TBI rehab.</p>
-            <a href="#">Explore Module →</a>
+            <button class="module-link" onclick="openModule('vision_therapy')">Explore Module →</button>
         </div>
 
         <!-- Module 9 -->
@@ -475,7 +555,7 @@ footer{
             <div class="icon">🔎</div>
             <h3>Low Vision & Rehabilitation</h3>
             <p>Low vision devices, magnifiers, telescopes, non-optical aids, and rehab.</p>
-            <a href="#">Explore Module →</a>
+            <button class="module-link" onclick="openModule('low_vision')">Explore Module →</button>
         </div>
 
         <!-- Module 10 -->
@@ -483,7 +563,7 @@ footer{
             <div class="icon">👶</div>
             <h3>Pediatric & Geriatric Optometry</h3>
             <p>Child eye examination, vision development, and aging eye clinical care.</p>
-            <a href="#">Explore Module →</a>
+            <button class="module-link" onclick="openModule('pediatric')">Explore Module →</button>
         </div>
 
         <!-- Module 11 -->
@@ -491,11 +571,10 @@ footer{
             <div class="icon">🏬</div>
             <h3>Dispensing Optics & Practice Mgmt</h3>
             <p>Frame selection, lens materials, coatings, lab optics, and clinic management.</p>
-            <a href="#">Explore Module →</a>
+            <button class="module-link" onclick="openModule('dispensing')">Explore Module →</button>
         </div>
     </div>
 </section>
-
 
 <section id="mcq">
     <div class="section-title">
@@ -526,7 +605,6 @@ footer{
         </div>
     </div>
 </section>
-
 
 <section id="clinical">
     <div class="section-title">
@@ -577,7 +655,6 @@ footer{
                 </tr>
             </thead>
             <tbody>
-                <!-- Aap nayi vacancies yahan code me <tr> add karke daal sakte hain -->
                 <tr>
                     <td>15 Sept 2026</td>
                     <td>Sankara Nethralaya</td>
@@ -605,7 +682,7 @@ footer{
     </div>
 
     <div class="review-section">
-        <form class="review-form" id="reviewForm" onsubmit="submitReview(event)">
+        <form class="review-form" id="reviewForm">
             <input type="text" id="reviewerName" placeholder="Your Name (e.g. Rahul Sharma, Optometry Student)" required>
             
             <select id="reviewerRating" required>
@@ -649,42 +726,4 @@ footer{
     <div class="ai-chat-header">
         <span>🤖 Optometry Vortex AI</span>
         <span style="cursor:pointer;" onclick="toggleAIChat()">✕</span>
-    </div>
-    <div class="ai-chat-messages" id="chatMessages">
-        <div class="message bot-msg">
-            Hello! 👋 I am <strong>Optometry Vortex AI</strong>. Ask me about Diagnostics (OCT, FFA), Vision Therapy, Cornea, or any of our 11 Optometry modules!
-        </div>
-    </div>
-    <div class="ai-chat-input-area">
-        <input type="text" id="userInput" placeholder="Ask a question..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-</div>
-
-<!-- Footer with Founder Profile -->
-<footer>
-  <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; text-align: left;">
-    
-    <div style="flex: 1.2; min-width: 250px;">
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-        <span style="font-size: 2rem;">👁️</span>
-        <h3 style="color: #ffffff; margin: 0; font-size: 1.4rem;">Optometry Vortex</h3>
-      </div>
-      <p style="font-size: 0.9rem; color: #bdc3c7; line-height: 1.5;">
-        A specialized clinical learning, academic resource, and job updates platform for Optometry students, interns, and eye-care professionals.
-      </p>
-    </div>
-
-    <div style="flex: 1.2; min-width: 250px;">
-      <h4 style="color: #3498db; margin-bottom: 12px; font-size: 1.1rem;">About the Founder</h4>
-      <p style="font-size: 0.95rem; font-weight: bold; color: #ffffff; margin-bottom: 4px;">Atish Kumar Singh</p>
-      <p style="font-size: 0.85rem; color: #bdc3c7; margin-bottom: 4px;">Senior Consultant Optometrist & OT Supervisor</p>
-      <p style="font-size: 0.85rem; color: #bdc3c7; margin-bottom: 10px;">B.Optom | M.Optom</p>
-      <p style="font-size: 0.85rem; color: #95a5a6; line-height: 1.4;">
-        Passionate about binocular vision, vision therapy, clinical optometry education, and surgical care.
-      </p>
-    </div>
-
-    <div style="flex: 1; min-width: 220px;">
-      <h4 style="color: #3498db; margin-bottom: 12px; font-size: 1.1rem;">Contact & Support</h4>
-      <p style="font-size: 0.9rem; margin-bottom: 8px; color: #bdc3c7;">
+    </
