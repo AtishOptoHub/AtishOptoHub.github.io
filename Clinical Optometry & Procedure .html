@@ -1,1 +1,322 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Optometry & Procedures</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 300px;
+            background-color: #1e293b;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #334155;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            background-color: #0f172a;
+            border-bottom: 1px solid #334155;
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.1rem;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-list {
+            list-style: none;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .nav-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #334155;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item:hover {
+            background-color: #334155;
+        }
+
+        .nav-item.active {
+            background-color: #0284c7;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px;
+            background-color: #ffffff;
+        }
+
+        .topic-card {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .topic-card.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography matching original note styling */
+        h1.test-title {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #0284c7;
+            padding-bottom: 5px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        p {
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        /* Image Display */
+        .diagram-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .diagram-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>Clinical Optometry</h2>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item active" onclick="showTopic('hirschberg')">1. Hirschberg Test</li>
+            <li class="nav-item" onclick="showTopic('krimsky')">2. Krimsky Test</li>
+            <li class="nav-item" onclick="showTopic('bruckner')">3. Bruckner Test</li>
+        </ul>
+    </div>
+
+    <!-- Content Area -->
+    <div class="main-content">
+
+        <!-- TOPIC 1: HIRSCHBERG TEST -->
+        <div id="hirschberg" class="topic-card active">
+            <h1 class="test-title">1. HIRSCHBERG TEST</h1>
+            
+            <div class="section-title">Definition</div>
+            <ul>
+                <li>Hirschberg test is an objective clinical method used to estimate the angle of ocular deviation by observing the position of corneal light reflex (Purkinje image I) in each eye when a light is shone from a fixed distance.</li>
+            </ul>
+
+            <div class="section-title">Principle</div>
+            <p>When a light is projected into the eyes:</p>
+            <ul>
+                <li>The corneal reflex should be centrally located in both eyes in normal alignment.</li>
+                <li>In strabismus, reflex shifts away from center in the deviating eye.</li>
+                <li>The amount of displacement correlates with angle of deviation (in prism diopters).</li>
+            </ul>
+
+            <div class="section-title">Procedure</div>
+            
+            <p class="bold">Patient Position</p>
+            <ul>
+                <li>Seated comfortably</li>
+                <li>Fixating on light source</li>
+            </ul>
+
+            <p class="bold">Examiner Position</p>
+            <ul>
+                <li>At 33 cm (near) or ~1 meter (depending on protocol)</li>
+                <li>Uses pen torch / fixation light</li>
+            </ul>
+
+            <p class="bold">Steps</p>
+            <ul>
+                <li>Ask patient to fixate on light.</li>
+                <li>Shine light directly at eyes.</li>
+                <li>Observe position of corneal reflex in both eyes.</li>
+                <li>Compare reflex symmetry.</li>
+                <li>Note displacement from pupillary center.</li>
+            </ul>
+
+            <div class="section-title">Normal Finding</div>
+            <p>Corneal light reflex is <span class="bold">slightly nasal to pupil center (~0.5 mm)</span> in both eyes symmetrically.</p>
+
+            <div class="diagram-container">
+                <!-- Word document image placeholder/data embedded -->
+                <p><i>[Diagram: Hirschberg Test Reflex Positions]</i></p>
+            </div>
+        </div>
+
+        <!-- TOPIC 2: KRIMSKY TEST -->
+        <div id="krimsky" class="topic-card">
+            <h1 class="test-title">2. KRIMSKY TEST</h1>
+            
+            <div class="section-title">Definition</div>
+            <ul>
+                <li>The Krimsky test is a modification of the Hirschberg test that uses prisms to quantify the angle of ocular deviation by re-centering the displaced corneal light reflex.</li>
+            </ul>
+
+            <div class="section-title">Principle</div>
+            <ul>
+                <li>Prisms bend light toward their base and displace the image toward the apex.</li>
+                <li>By placing a prism in front of the fixating or deviating eye, the light beam is optically shifted until the corneal reflex in the deviating eye is centered.</li>
+                <li>The prism power required to center the reflex equals the angle of deviation.</li>
+            </ul>
+
+            <div class="section-title">Procedure</div>
+            
+            <p class="bold">Patient Position</p>
+            <ul>
+                <li>Seated comfortably, looking straight ahead at a light source (penlight at 33 cm or 1 m).</li>
+            </ul>
+
+            <p class="bold">Examiner Position</p>
+            <ul>
+                <li>Positioned directly in front of the patient at eye level.</li>
+            </ul>
+
+            <p class="bold">Steps</p>
+            <ul>
+                <li>Perform the basic Hirschberg test first to identify the deviating eye and estimate deviation.</li>
+                <li>Place a prism (prism bar or loose prism) in front of one eye (usually the fixating eye or deviating eye).</li>
+                <li>Base orientation rule:
+                    <ul>
+                        <li>Base-Out for Esotropia</li>
+                        <li>Base-In for Exotropia</li>
+                        <li>Base-Down for Hypertropia</li>
+                        <li>Base-Up for Hypotropia</li>
+                    </ul>
+                </li>
+                <li>Increase prism strength gradually until the corneal reflex in the deviating eye moves to the normal centered position.</li>
+                <li>Record the minimum prism diopter (PD) strength that achieves symmetry.</li>
+            </ul>
+
+            <div class="section-title">Normal Finding</div>
+            <p>No prism is required; corneal light reflexes are symmetric in both eyes naturally.</p>
+        </div>
+
+        <!-- TOPIC 3: BRUCKNER TEST -->
+        <div id="bruckner" class="topic-card">
+            <h1 class="test-title">3. BRUCKNER TEST</h1>
+            
+            <div class="section-title">Definition</div>
+            <ul>
+                <li>The Brückner test is a rapid screening method that uses a direct ophthalmoscope to compare the red reflexes of both eyes simultaneously to detect strabismus, anisometropia, and media opacities.</li>
+            </ul>
+
+            <div class="section-title">Principle</div>
+            <ul>
+                <li>When light from an ophthalmoscope illuminates both pupils simultaneously, light reflects off the fundus, producing a red reflex.</li>
+                <li>In normal, fully aligned, and emmetropic eyes, both red reflexes are equal in brightness, size, and color.</li>
+                <li>Any asymmetry in brightness or color indicates a potential ocular abnormality (e.g., strabismus or refractive error).</li>
+            </ul>
+
+            <div class="section-title">Procedure</div>
+            
+            <p class="bold">Environment Setup</p>
+            <ul>
+                <li>Dim the room lights to allow pupil dilation.</li>
+            </ul>
+
+            <p class="bold">Examiner Position</p>
+            <ul>
+                <li>Stand approximately 0.5 to 1 meter away from the patient.</li>
+                <li>Look through a direct ophthalmoscope set at "0" or the patient's distance prescription.</li>
+            </ul>
+
+            <p class="bold">Steps</p>
+            <ul>
+                <li>Direct the light beam to illuminate both of the patient's eyes simultaneously.</li>
+                <li>Instruct the patient to look directly into the ophthalmoscope light.</li>
+                <li>Observe and compare the red reflex from both pupils at the same time.</li>
+                <li>Evaluate for differences in brightness, color, clarity, or shape of the reflex.</li>
+            </ul>
+
+            <div class="section-title">Normal Finding</div>
+            <p>Both pupils display an <span class="bold">equal, bright, and clear red reflex</span> symmetrically.</p>
+        </div>
+
+    </div>
+
+    <script>
+        function showTopic(topicId) {
+            // Hide all cards
+            const cards = document.querySelectorAll('.topic-card');
+            cards.forEach(card => card.classList.remove('active'));
+
+            // Deactivate all nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+
+            // Show selected card
+            document.getElementById(topicId).classList.add('active');
+
+            // Set active class on clicked nav item
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
