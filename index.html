@@ -13,7 +13,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OptometryHub | Optometry Learning Platform</title>
+<title>Optometry Vortex | Optometry Learning Platform</title>
 
 <!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -194,23 +194,41 @@ section{
     font-weight:bold;
 }
 
-.highlight{
-    background:#0077b6;
-    color:white;
-    border-radius:18px;
-    padding:40px;
-    text-align:center;
+/* Job Table Styles */
+.job-container {
+    background: white;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border: 1px solid #e2e8f0;
+    overflow-x: auto;
 }
 
-.highlight p{
-    margin:10px auto 20px;
-    max-width:650px;
-    color:#e0f2fe;
+.job-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
 }
 
-.highlight .btn{
-    background:white;
-    color:#0077b6;
+.job-table th, .job-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+}
+
+.job-table th {
+    background-color: #f1f5f9;
+    color: #0d253f;
+    font-weight: 600;
+}
+
+.job-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
 }
 
 /* Reviews Section CSS */
@@ -354,7 +372,7 @@ footer{
 
 <header>
     <div class="logo">
-        Atish <span>OptoHub</span>
+        Optometry <span>Vortex</span>
     </div>
 
     <nav>
@@ -362,19 +380,20 @@ footer{
         <a href="#notes">11 Modules</a>
         <a href="#mcq">MCQs</a>
         <a href="#clinical">Clinical</a>
+        <a href="#jobs">Vacancies</a>
         <a href="#reviews">Reviews</a>
     </nav>
 </header>
 
 
 <section class="hero" id="home">
-    <h1>Welcome to <span>Atish OptoHub</span></h1>
+    <h1>Welcome to <span>Optometry Vortex</span></h1>
     <p>
-        Your comprehensive clinical learning and academic resource platform for Optometry students, interns, and eye-care professionals.
+        Your comprehensive clinical learning, academic resource, and career platform for Optometry students, interns, and eye-care professionals.
     </p>
     <div class="buttons">
         <a href="#notes" class="btn primary">Explore 11 Modules</a>
-        <a href="#mcq" class="btn secondary">Practice MCQs</a>
+        <a href="#jobs" class="btn secondary">View Latest Vacancies</a>
     </div>
 </section>
 
@@ -538,11 +557,50 @@ footer{
     </div>
 </section>
 
+<!-- Job Vacancies Section (Controlled by Admin) -->
+<section id="jobs">
+    <div class="section-title">
+        <h2>💼 Hospital Vacancies & Clinical Openings</h2>
+        <p>Verified job opportunities for Optometrists and Eye Care Professionals.</p>
+    </div>
+
+    <div class="job-container">
+        <table class="job-table">
+            <thead>
+                <tr>
+                    <th>Posted Date</th>
+                    <th>Hospital / Organization</th>
+                    <th>Role / Position</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aap nayi vacancies yahan code me <tr> add karke daal sakte hain -->
+                <tr>
+                    <td>15 Sept 2026</td>
+                    <td>Sankara Nethralaya</td>
+                    <td>Consultant Optometrist</td>
+                    <td>Chennai, Tamil Nadu</td>
+                    <td><span class="job-badge">Active</span></td>
+                </tr>
+                <tr>
+                    <td>10 Sept 2026</td>
+                    <td>Dr. Agarwal's Eye Hospital</td>
+                    <td>OT Supervisor / Optometrist</td>
+                    <td>Lucknow, UP</td>
+                    <td><span class="job-badge">Active</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
 <!-- Visitor Review & Feedback Section -->
 <section id="reviews">
     <div class="section-title">
         <h2>⭐ Visitor Feedback & Reviews</h2>
-        <p>Share your learning experience and feedback for Atish OptoHub.</p>
+        <p>Share your learning experience and feedback for Optometry Vortex.</p>
     </div>
 
     <div class="review-section">
@@ -564,13 +622,12 @@ footer{
         </form>
 
         <div class="review-list" id="reviewList">
-            <!-- Sample Initial Reviews -->
             <div class="review-item">
                 <div class="review-header">
                     <span>Atish Kumar Singh</span>
                     <span class="stars">⭐⭐⭐⭐⭐</span>
                 </div>
-                <p style="font-size:0.9rem; color:#475569;">"Welcome to Atish OptoHub! Feel free to leave your valuable feedback and suggestions here."</p>
+                <p style="font-size:0.9rem; color:#475569;">"Welcome to Optometry Vortex! Feel free to leave your valuable feedback and suggestions here."</p>
             </div>
         </div>
     </div>
@@ -578,7 +635,7 @@ footer{
 
 <!-- Floating Widgets (WhatsApp & AI Assistant) -->
 <div class="floating-container">
-    <a href="https://wa.me/918405850810?text=Hello%20Atish%20OptoHub!" target="_blank" class="float-btn btn-whatsapp" title="WhatsApp Chat">
+    <a href="https://wa.me/918405850810?text=Hello%20Optometry%20Vortex!" target="_blank" class="float-btn btn-whatsapp" title="WhatsApp Chat">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
     <div class="float-btn btn-ai" onclick="toggleAIChat()" title="AI Assistant">
@@ -589,12 +646,12 @@ footer{
 <!-- AI Chat Box UI -->
 <div class="ai-chat-box" id="aiChatPopup">
     <div class="ai-chat-header">
-        <span>🤖 OptoHub AI Assistant</span>
+        <span>🤖 Optometry Vortex AI</span>
         <span style="cursor:pointer;" onclick="toggleAIChat()">✕</span>
     </div>
     <div class="ai-chat-messages" id="chatMessages">
         <div class="message bot-msg">
-            Hello! 👋 I am <strong>Atish OptoHub AI</strong>. Ask me about Diagnostics (OCT, FFA), Vision Therapy, Cornea, or any of our 11 Optometry modules!
+            Hello! 👋 I am <strong>Optometry Vortex AI</strong>. Ask me about Diagnostics (OCT, FFA), Vision Therapy, Cornea, or any of our 11 Optometry modules!
         </div>
     </div>
     <div class="ai-chat-input-area">
@@ -610,10 +667,10 @@ footer{
     <div style="flex: 1.2; min-width: 250px;">
       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
         <span style="font-size: 2rem;">👁️</span>
-        <h3 style="color: #ffffff; margin: 0; font-size: 1.4rem;">Atish OptoHub</h3>
+        <h3 style="color: #ffffff; margin: 0; font-size: 1.4rem;">Optometry Vortex</h3>
       </div>
       <p style="font-size: 0.9rem; color: #bdc3c7; line-height: 1.5;">
-        A specialized clinical learning & academic resource platform for Optometry students, interns, and eye-care professionals.
+        A specialized clinical learning, academic resource, and job updates platform for Optometry students, interns, and eye-care professionals.
       </p>
     </div>
 
@@ -630,117 +687,3 @@ footer{
     <div style="flex: 1; min-width: 220px;">
       <h4 style="color: #3498db; margin-bottom: 12px; font-size: 1.1rem;">Contact & Support</h4>
       <p style="font-size: 0.9rem; margin-bottom: 8px; color: #bdc3c7;">
-        📧 Email:<br>
-        <a href="mailto:kumaratish065@gmail.com" style="color: #3498db; text-decoration: none; word-break: break-all;">kumaratish065@gmail.com</a>
-      </p>
-      <p style="font-size: 0.9rem; color: #bdc3c7; margin-top: 10px;">📍 India</p>
-    </div>
-  </div>
-
-  <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #34495e; font-size: 0.85rem; color: #95a5a6;">
-    © 2026 Atish OptoHub. All rights reserved.
-  </div>
-</footer>
-
-<!-- Interactive Scripts -->
-<script>
-    // Review Submission Functionality
-    function submitReview(event) {
-        event.preventDefault();
-        var name = document.getElementById("reviewerName").value.trim();
-        var ratingVal = document.getElementById("reviewerRating").value;
-        var comment = document.getElementById("reviewerComment").value.trim();
-
-        if (!name || !ratingVal || !comment) return;
-
-        var starsText = "⭐".repeat(parseInt(ratingVal));
-
-        var reviewList = document.getElementById("reviewList");
-        var reviewItem = document.createElement("div");
-        reviewItem.className = "review-item";
-        
-        reviewItem.innerHTML = `
-            <div class="review-header">
-                <span>${escapeHTML(name)}</span>
-                <span class="stars">${starsText}</span>
-            </div>
-            <p style="font-size:0.9rem; color:#475569;">"${escapeHTML(comment)}"</p>
-        `;
-
-        reviewList.prepend(reviewItem);
-
-        // Reset form
-        document.getElementById("reviewForm").reset();
-        alert("Thank you for your review!");
-    }
-
-    function escapeHTML(str) {
-        return str.replace(/[&<>'"]/g, 
-            tag => ({
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                "'": '&#39;',
-                '"': '&quot;'
-            }[tag] || tag)
-        );
-    }
-
-    // AI Chatbot Functionality
-    function toggleAIChat() {
-        var box = document.getElementById("aiChatPopup");
-        box.style.display = (box.style.display === "flex") ? "none" : "flex";
-    }
-
-    function handleKeyPress(e) {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    }
-
-    function sendMessage() {
-        var inputField = document.getElementById("userInput");
-        var text = inputField.value.trim();
-        if (text === "") return;
-
-        var messagesContainer = document.getElementById("chatMessages");
-
-        var userDiv = document.createElement("div");
-        userDiv.className = "message user-msg";
-        userDiv.textContent = text;
-        messagesContainer.appendChild(userDiv);
-
-        inputField.value = "";
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-        setTimeout(function() {
-            var botReply = generateOptoReply(text.toLowerCase());
-            var botDiv = document.createElement("div");
-            botDiv.className = "message bot-msg";
-            botDiv.innerHTML = botReply;
-            messagesContainer.appendChild(botDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }, 500);
-    }
-
-    function generateOptoReply(query) {
-        if (query.includes("diagnostic") || query.includes("investigation") || query.includes("oct") || query.includes("perimetry")) {
-            return "<strong>Diagnostic & Investigations:</strong> Includes OCT, Corneal Topography, Visual Field/Perimetry, FFA, and Pachymetry techniques.";
-        } else if (query.includes("vision therapy") || query.includes("vt") || query.includes("exercise")) {
-            return "<strong>Vision Therapy:</strong> Dedicated to Binocular vision rehabilitation, Brock string exercises, Accommodation/Convergence therapy, and Neuro-optometry.";
-        } else if (query.includes("cornea")) {
-            return "<strong>Cornea:</strong> Primary refractive power (~+43D). Contains 6 layers: Epithelium, Bowman's, Stroma, Dua's, Descemet's, Endothelium.";
-        } else if (query.includes("retina")) {
-            return "<strong>Retina:</strong> 10 layers. Essential for visual phototransduction and processing.";
-        } else if (query.includes("hello") || query.includes("hi") || query.includes("hey")) {
-            return "Hello Optometrist! How can I assist you with Optometry notes today?";
-        } else if (query.includes("contact") || query.includes("atish")) {
-            return "You can contact <strong>Atish Kumar Singh</strong> directly via WhatsApp!";
-        } else {
-            return "Thank you! I am trained on 11 Optometry Modules including <strong>Diagnostics</strong>, <strong>Vision Therapy</strong>, <strong>Cornea</strong>, and <strong>Retina</strong>.";
-        }
-    }
-</script>
-
-</body>
-</html>
